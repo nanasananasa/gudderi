@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header, Item, Icon } from 'native-base';
-import { View, TextInput } from 'react-native';
+import { Header, Item, Icon, Input, Button, Text } from 'native-base';
 import styles from './SearchBarHeaderStyles';
 
 function SearchBarHeader(props) {
@@ -16,15 +15,24 @@ function SearchBarHeader(props) {
       style={styles.headerContainer}
     >
       <Item style={styles.searchBarContainer}>
-        <Icon name="ios-search" />
-        <View style={styles.searchBar}>
-          <TextInput
-            placeholder={hintText}
-            onChangeText={onChangeText}
-            returnKeyType="done"
-          />
-        </View>
+        <Icon
+          style={styles.searchIcon}
+          name="ios-search"
+        />
+        <Input
+          placeholder={hintText}
+          onChangeText={onChangeText}
+          returnKeyType="done"
+        />
       </Item>
+      <Button
+        transparent
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        <Text style={styles.cancelButton}>キャンセル</Text>
+      </Button>
     </Header>
   );
 }
