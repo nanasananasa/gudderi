@@ -1,11 +1,9 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import LiveListPage from '../../components/pages/LiveListPage/LiveListPage';
 
 function LiveList({ navigation }) {
   return (
-    <View>
-      <Text>LiveList</Text>
-    </View>
+    <LiveListPage />
   );
 }
 
