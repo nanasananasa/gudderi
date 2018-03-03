@@ -5,9 +5,17 @@ export default StyleSheet.create({
   header: {
     backgroundColor: constants.sectionHeaderColor,
   },
+  backIconContainer: {
+    flex: 1,
+  },
+  backIcon: {
+    color: constants.backIconColor,
+  },
+  titleContainer: {
+    flex: 5,
+  },
   title: {
     alignItems: 'center',
-    fontSize: 20,
     fontWeight: 'bold',
     color: constants.mainTextColor,
   },

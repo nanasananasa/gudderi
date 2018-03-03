@@ -3,6 +3,7 @@ const constants = {
   sectionHeaderColor: '#FAFAFA',
   whiteColor: '#ffffff',
   mainTextColor: '#8E8E93',
+  backIconColor: '#B5B5B6',
   headerInputBackColor: '#EAC5C9',
 };
 

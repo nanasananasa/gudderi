@@ -9,7 +9,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   searchIcon: {
-    color: 'white',
+    color: constants.whiteColor,
   },
   title: {
     alignItems: 'center',

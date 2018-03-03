@@ -8,7 +8,7 @@ function SectionHeader(props) {
   const { artistName, artistId } = navigation.state.params;
   return (
     <Header style={styles.header}>
-      <Left style={styles.headerComponent}>
+      <Left style={styles.backIconContainer}>
         <Button
           transparent
           onPress={() => {
@@ -16,15 +16,13 @@ function SectionHeader(props) {
           }}
         >
           <Icon
+            style={styles.backIcon}
             name="ios-arrow-back"
           />
         </Button>
       </Left>
-      <Body>
-        <Title
-          style={styles.title}
-          ellipsizeMode="clip"
-        >
+      <Body style={styles.titleContainer}>
+        <Title style={styles.title}>
           {title}
         </Title>
       </Body>
