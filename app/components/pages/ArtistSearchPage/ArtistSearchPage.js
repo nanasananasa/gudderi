@@ -3,7 +3,7 @@ import { Container, Content, List, ListItem, Text } from 'native-base';
 import { searchArtist } from '../../../redux/actions/eventActions';
 import SearchBarHeader from '../../../components/organisms/SearchBarHeader/SearchBarHeader';
 
-function ArtistSearchResultList({ results }) {
+function ArtistSearchResultList({ results, navigation }) {
   if (!results) {
     return null;
   }
@@ -13,7 +13,12 @@ function ArtistSearchResultList({ results }) {
         return (
           <ListItem
             key={item.id}
-            onClick={() => {}}
+            onPress={() => {
+              navigation.navigate('LiveList', {
+                artistId: item.id,
+                artistName: item.name,
+              });
+            }}
           >
             <Text>{item.name}</Text>
           </ListItem>
@@ -43,7 +48,10 @@ function ArtistSearchPage(props) {
         navigation={navigation}
       />
       <Content>
-        <ArtistSearchResultList results={results} />
+        <ArtistSearchResultList
+          results={results}
+          navigation={navigation}
+        />
       </Content>
     </Container>
   );

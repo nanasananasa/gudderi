@@ -1,9 +1,13 @@
 import React from 'react';
 import LiveListPage from '../../components/pages/LiveListPage/LiveListPage';
 
-function LiveList({ navigation }) {
+function LiveList(props) {
+  const { artistId, artistName } = props.navigation.state.params;
   return (
-    <LiveListPage />
+    <LiveListPage
+      {...props}
+      artistName={artistName}
+    />
   );
 }
 

@@ -16,7 +16,7 @@ function TopPage(props) {
           navigation.navigate('ArtistSearch');
         }}
       />
-      <Content></Content>
+      <Content />
       <MainTabFooter />
     </Container>
   );

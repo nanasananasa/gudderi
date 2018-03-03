@@ -1,11 +1,17 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Container, Content } from 'native-base';
+import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
 
-function LiveListPage({ navigation }) {
+function LiveListPage(props) {
+  const { navigation, artistName } = props;
   return (
-    <View>
-      <Text>LiveList</Text>
-    </View>
+    <Container>
+      <SectionHeader
+        navigation={navigation}
+        title={`「${artistName}」ライブ一覧`}
+      />
+      <Content />
+    </Container>
   );
 }
 
