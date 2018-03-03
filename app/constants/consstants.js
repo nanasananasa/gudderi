@@ -1,10 +1,12 @@
 const constants = {
   mainColor: '#E07581',
-  sectionHeaderColor: '#FAFAFA',
   whiteColor: '#ffffff',
-  mainTextColor: '#8E8E93',
-  backIconColor: '#B5B5B6',
   headerInputBackColor: '#EAC5C9',
+  sectionHeaderColor: '#FAFAFA',
+  backIconColor: '#B5B5B6',
+
+  mainTextColor: '#8E8E93',
+  boldTextColor: '#4C4C4C',
 };
 
 export default constants;

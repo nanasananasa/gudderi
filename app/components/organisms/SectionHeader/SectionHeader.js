@@ -4,10 +4,13 @@ import { Header, Title, Body, Left, Right, Icon, Button } from 'native-base';
 import styles from './SectionHeaderStyle';
 
 function SectionHeader(props) {
-  const { navigation, title } = props;
+  const { navigation, title, hasTabs } = props;
   const { artistName, artistId } = navigation.state.params;
   return (
-    <Header style={styles.header}>
+    <Header
+      style={styles.header}
+      hasTabs
+    >
       <Left style={styles.backIconContainer}>
         <Button
           transparent
@@ -33,10 +36,12 @@ function SectionHeader(props) {
 
 SectionHeader.propTypes = {
   title: PropTypes.string,
+  hasTabs: PropTypes.bool,
 };
 
 SectionHeader.defaultProps = {
   title: '',
+  hasTabs: false,
 };
 export default SectionHeader;
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Content } from 'native-base';
+import { Container, Text, Tab, Tabs } from 'native-base';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
+import styles from './LiveListPageStyles';
 
 function LiveListPage(props) {
   const { navigation, artistName } = props;
@@ -9,8 +10,23 @@ function LiveListPage(props) {
       <SectionHeader
         navigation={navigation}
         title={`「${artistName}」ライブ一覧`}
+        hasTabs
       />
-      <Content />
+      <Tabs
+        initialPage={0}
+        tabBarUnderlineStyle={styles.tabLineStyle}
+      >
+        <Tab
+          heading="日付順"
+          activeTextStyle={styles.activeTabTextStyle}
+        >
+        </Tab>
+        <Tab
+          heading="人気順"
+          activeTextStyle={styles.activeTabTextStyle}
+        >
+        </Tab>
+      </Tabs>
     </Container>
   );
 }
