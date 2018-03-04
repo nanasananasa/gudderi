@@ -1,8 +1,7 @@
 import React from 'react';
 import { Content, List, ListItem, Body, Text } from 'native-base';
-import styles from './LiveListContentStyles';
 
-function LiveList({ liveList }) {
+function LiveList({ liveList, navigation }) {
   if (!liveList) {
     return null;
   }
@@ -12,6 +11,11 @@ function LiveList({ liveList }) {
         return (
           <ListItem
             key={item.id}
+            onPress={() => {
+              navigation.navigate('ParticipantsList', {
+                liveId: item.id,
+              });
+            }}
           >
             <Body>
               <Text>{item.liveName}</Text>
@@ -25,10 +29,13 @@ function LiveList({ liveList }) {
 }
 
 function LiveListContent(props) {
-  const { liveList } = props;
+  const { liveList, navigation } = props;
   return (
     <Content>
-      <LiveList liveList={liveList} />
+      <LiveList
+        liveList={liveList}
+        navigation={navigation}
+      />
     </Content>
   );
 }

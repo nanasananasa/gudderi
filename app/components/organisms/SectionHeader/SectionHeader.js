@@ -5,11 +5,10 @@ import styles from './SectionHeaderStyle';
 
 function SectionHeader(props) {
   const { navigation, title, hasTabs } = props;
-  const { artistName, artistId } = navigation.state.params;
   return (
     <Header
       style={styles.header}
-      hasTabs
+      hasTabs={hasTabs}
     >
       <Left style={styles.backIconContainer}>
         <Button

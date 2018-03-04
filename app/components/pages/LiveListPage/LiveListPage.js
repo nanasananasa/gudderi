@@ -26,13 +26,19 @@ function LiveListPage(props) {
           heading="日付順"
           activeTextStyle={styles.activeTabTextStyle}
         >
-          <LiveListContent liveList={liveSearchOrderByDate.results} />
+          <LiveListContent
+            liveList={liveSearchOrderByDate.results}
+            navigation={navigation}
+          />
         </Tab>
         <Tab
           heading="人気順"
           activeTextStyle={styles.activeTabTextStyle}
         >
-          <LiveListContent liveList={liveSearchOrderByPopular.results} />
+          <LiveListContent
+            liveList={liveSearchOrderByPopular.results}
+            navigation={navigation}
+          />
         </Tab>
       </Tabs>
     </Container>

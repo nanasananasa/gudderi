@@ -1,7 +1,50 @@
 export const SEARCH_ARTIST = 'SEARCH_ARTIST';
 export const FETCH_LIVE_LIST = 'FETCH_LIVE_LIST';
+export const FETCH_PARTICIPANTS_LIST = 'FETCH_PARTICIPANTS_LIST';
 export const LIVE_SORT_KEY_DATE = 1;
 export const LIVE_SORT_KEY_POPULAR = 2;
+
+export const fetchParticipantsList = (liveId) => {
+  //TODO: 通信しにいく
+  return ({
+    type: FETCH_PARTICIPANTS_LIST,
+    payload: {
+      participantsList: {
+        liveId,
+        results: [
+          {
+            userId: 1,
+            nickName: 'N.M',
+            prefecture: '東京',
+            comment: '二宮くん推しです。',
+            userImageUrl: 'https://image.pet-home.jp/user_file/2017/08/01/1036314_th320.jpg',
+          },
+          {
+            userId: 2,
+            nickName: 'N.M',
+            prefecture: '東京',
+            comment: '二宮くん推しです。',
+            userImageUrl: 'https://image.pet-home.jp/user_file/2017/08/01/1036314_th320.jpg',
+          },
+          {
+            userId: 3,
+            nickName: 'N.M',
+            prefecture: '東京',
+            comment: '二宮くん推しです。',
+            userImageUrl: 'https://image.pet-home.jp/user_file/2017/08/01/1036314_th320.jpg',
+          },
+          {
+            userId: 4,
+            nickName: 'N.M',
+            prefecture: '東京',
+            comment: '二宮くん推しです。',
+            userImageUrl: 'https://image.pet-home.jp/user_file/2017/08/01/1036314_th320.jpg',
+          },
+        ],
+      },
+    },
+  });
+};
 
 export const fetchLiveList = (artistId, sortKey) => {
   //TODO: 通信しにいく

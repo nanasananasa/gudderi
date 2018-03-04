@@ -2,6 +2,7 @@ import { handleActions } from 'redux-actions';
 import {
   SEARCH_ARTIST,
   FETCH_LIVE_LIST,
+  FETCH_PARTICIPANTS_LIST,
 } from './../actions/eventActions';
 
 const initialState = {
@@ -17,6 +18,10 @@ const eventReducer = handleActions({
     ...payload,
   }),
   [FETCH_LIVE_LIST]: (state, { payload }) => ({
+    ...state,
+    ...payload,
+  }),
+  [FETCH_PARTICIPANTS_LIST]: (state, { payload }) => ({
     ...state,
     ...payload,
   }),
