@@ -1,11 +1,16 @@
 import React from 'react';
-import { Container, Text, Tab, Tabs } from 'native-base';
-import PropTypes from 'prop-types';
+import { Container, Tab, Tabs } from 'native-base';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
+import LiveListContent from '../../organisms/LiveListContent/LiveListContent';
 import styles from './LiveListPageStyles';
 
 function LiveListPage(props) {
-  const { navigation, artistName, onTabChanged } = props;
+  const {
+    navigation,
+    artistName,
+    liveSearchOrderByDate,
+    liveSearchOrderByPopular,
+  } = props;
   return (
     <Container>
       <SectionHeader
@@ -21,24 +26,17 @@ function LiveListPage(props) {
           heading="日付順"
           activeTextStyle={styles.activeTabTextStyle}
         >
+          <LiveListContent liveList={liveSearchOrderByDate.results} />
         </Tab>
         <Tab
           heading="人気順"
           activeTextStyle={styles.activeTabTextStyle}
         >
+          <LiveListContent liveList={liveSearchOrderByPopular.results} />
         </Tab>
       </Tabs>
     </Container>
   );
 }
-
-LiveListPage.propTypes = {
-  onTabChanged: PropTypes.func,
-};
-
-LiveListPage.defaultProps = {
-  onTabChanged: () => {
-  },
-};
 
 export default LiveListPage;
