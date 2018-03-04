@@ -46,7 +46,7 @@ function ArtistSearchPage(props) {
           dispatch(searchArtist(text));
         }}
         onCancel={() => {
-          searchArtist();
+          dispatch(searchArtist());
           navigation.goBack();
         }}
         navigation={navigation}
