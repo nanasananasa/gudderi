@@ -7,7 +7,6 @@ import styles from './TopPageStyle';
 function TopPage(props) {
   const {
     navigation,
-    dispatch,
   } = props;
   return (
     <Container style={styles.container}>
@@ -17,7 +16,6 @@ function TopPage(props) {
         }}
       />
       <Content />
-      <MainTabFooter />
     </Container>
   );
 }
