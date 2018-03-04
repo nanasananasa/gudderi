@@ -1,5 +1,6 @@
 import React from 'react';
-import { connect, bindActionCreators } from 'react-redux';
+import { connect } from 'react-redux';
+import { compose, lifecycle, pure } from 'recompose'
 import LiveListPage from '../../components/pages/LiveListPage/LiveListPage';
 import {
   fetchLiveList,
@@ -9,23 +10,15 @@ import {
 
 function LiveList(props) {
   const {
-    artistId,
-    artistName,
-  } = props.navigation.state.params;
-  const {
     liveSearchOrderByDate,
     liveSearchOrderByPopular,
-    dispatch,
   } = props;
+  const {
+    artistName,
+  } = props.navigation.state.params;
 
-  //TODO: recompose化
-  if (!liveSearchOrderByDate) {
-    dispatch(fetchLiveList(artistId, LIVE_SORT_KEY_DATE));
-    return null;//TODO: Loading
-  }
-  if (!liveSearchOrderByPopular) {
-    dispatch(fetchLiveList(artistId, LIVE_SORT_KEY_POPULAR));
-    return null;//TODO: Loading
+  if (!liveSearchOrderByDate || !liveSearchOrderByPopular) {
+    return null; //TODO: LoadingComponent
   }
 
   return (
@@ -36,10 +29,34 @@ function LiveList(props) {
   );
 }
 
-export default connect((state) => {
+const connector = connect((state) => {
   return {
     liveSearchOrderByDate: state.event.liveSearchOrderByDate,
     liveSearchOrderByPopular: state.event.liveSearchOrderByPopular,
   };
-})(LiveList);
+});
+
+export default compose(
+  connector,
+  pure,
+  lifecycle({
+    componentWillMount() {
+      const {
+        dispatch,
+        liveSearchOrderByDate,
+        liveSearchOrderByPopular,
+      } = this.props;
+      const {
+        artistId,
+      } = this.props.navigation.state.params;
+
+      if (!liveSearchOrderByDate) {
+        dispatch(fetchLiveList(artistId, LIVE_SORT_KEY_DATE));
+      }
+      if (!liveSearchOrderByPopular) {
+        dispatch(fetchLiveList(artistId, LIVE_SORT_KEY_POPULAR));
+      }
+    },
+  }),
+)(LiveList);
 
