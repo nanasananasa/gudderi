@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container, Text, Tab, Tabs } from 'native-base';
+import PropTypes from 'prop-types';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
 import styles from './LiveListPageStyles';
 
 function LiveListPage(props) {
-  const { navigation, artistName } = props;
+  const { navigation, artistName, onTabChanged } = props;
   return (
     <Container>
       <SectionHeader
@@ -30,5 +31,14 @@ function LiveListPage(props) {
     </Container>
   );
 }
+
+LiveListPage.propTypes = {
+  onTabChanged: PropTypes.func,
+};
+
+LiveListPage.defaultProps = {
+  onTabChanged: () => {
+  },
+};
 
 export default LiveListPage;

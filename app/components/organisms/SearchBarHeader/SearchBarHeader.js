@@ -7,7 +7,7 @@ function SearchBarHeader(props) {
   const {
     hintText,
     onChangeText,
-    navigation,
+    onCancel,
   } = props;
   return (
     <Header
@@ -28,7 +28,7 @@ function SearchBarHeader(props) {
       <Button
         transparent
         onPress={() => {
-          navigation.goBack();
+          onCancel();
         }}
       >
         <Text style={styles.cancelButton}>キャンセル</Text>
@@ -40,11 +40,15 @@ function SearchBarHeader(props) {
 SearchBarHeader.propTypes = {
   hintText: PropTypes.string,
   onChangeText: PropTypes.func,
+  onCancel: PropTypes.func,
 };
 
 SearchBarHeader.defaultProps = {
   hintText: '',
   onChangeText: () => {
+  },
+  onCancal: () => {
+
   },
 };
 
