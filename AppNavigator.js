@@ -2,6 +2,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation';
 import Top from './app/containers/Top/Top';
 import ArtistSearch from './app/containers/ArtistSearch/ArtistSearch';
 import LiveList from './app/containers/LiveList/LiveList';
+import RequestConfirmModal from './app/components/modals/RequestConfirmModal/RequestConfirmModal';
 import ParticipantsList from './app/containers/ParticipantsList/ParticipantsList';
 import MainTabFooter from './app/components/organisms/MainTabFooter/MainTabFooter';
 
@@ -32,7 +33,7 @@ const WorkerStack = StackNavigator({
   },
 }, { headerMode: 'none' });
 
-export default TabNavigator(
+const GlobalTabNavigator = TabNavigator(
   {
     Client: { screen: ClientStack },
     Worker: { screen: WorkerStack },
@@ -44,3 +45,12 @@ export default TabNavigator(
     swipeEnabled: false,
   },
 );
+
+export default StackNavigator({
+  GlobalTabNavigator: {
+    screen: GlobalTabNavigator,
+  },
+  RequestConfirmModal: {
+    screen: RequestConfirmModal,
+  },
+}, { headerMode: 'none', mode: 'modal' });

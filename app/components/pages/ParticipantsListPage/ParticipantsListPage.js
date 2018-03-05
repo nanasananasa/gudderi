@@ -3,7 +3,7 @@ import { Container, List, ListItem, Text, Body, Thumbnail } from 'native-base';
 import Line from '../../atoms/Line/Line';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
 
-function ParticipantsList({ participantsList }) {
+function ParticipantsList({ participantsList, navigation }) {
   if (!participantsList) {
     return null;
   }
@@ -13,10 +13,18 @@ function ParticipantsList({ participantsList }) {
         return (
           <ListItem
             key={item.userId}
+            onPress={() => {
+              navigation.navigate('RequestConfirmModal', {
+                userImageUrl: item.userImageUrl,
+                userNickName: item.nickName,
+                userComment: item.comment,
+                userPrefecture: item.prefecture,
+              });
+            }}
           >
             <Thumbnail source={{ uri: item.userImageUrl }} />
             <Body>
-              <Text>{item.nickName}</Text>
+              <Text>{`${item.nickName}さん ${item.prefecture}`}</Text>
               <Text note>{item.comment}</Text>
             </Body>
           </ListItem>
@@ -35,7 +43,10 @@ function ParticipantsListPage({ navigation, results }) {
         hasTabs
       />
       <Line />
-      <ParticipantsList participantsList={results} />
+      <ParticipantsList
+        participantsList={results}
+        navigation={navigation}
+      />
     </Container>
   );
 }
