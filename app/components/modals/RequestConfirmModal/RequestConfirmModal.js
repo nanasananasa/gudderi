@@ -4,6 +4,7 @@ import GudderiModal from '../../template/GudderiModal/GudderiModal';
 import styles from './RequestConfirmModalStyles';
 
 // 依頼する確認モーダル
+//FIXME: Flowを使って型安全化する
 function RequestConfirmModal(props) {
   const {
     onPressConfirm,
