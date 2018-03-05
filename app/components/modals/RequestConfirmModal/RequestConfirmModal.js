@@ -8,21 +8,21 @@ function RequestConfirmModal(props) {
   const {
     onPressConfirm,
     navigation,
+    visible,
+    data,
   } = props;
-  const {
-    userImageUrl,
-    userNickName,
-    userComment,
-    userPrefecture,
-  } = props.navigation.state.params;
+
   return (
-    <GudderiModal navigation={navigation}>
+    <GudderiModal
+      navigation={navigation}
+      visible={visible}
+    >
       <Thumbnail
         style={styles.thumbnail}
-        source={{ uri: userImageUrl }}
+        source={{ uri: data.userImageUrl }}
       />
-      <Text>{`${userNickName}さん ${userPrefecture}`}</Text>
-      <Text note>{userComment}</Text>
+      <Text>{`${data.userNickName}さん ${data.userPrefecture}`}</Text>
+      <Text note>{data.userComment}</Text>
       <Button
         style={styles.confirmButton}
         onPress={() => onPressConfirm()}

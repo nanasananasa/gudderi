@@ -2,8 +2,10 @@ import React from 'react';
 import { Container, List, ListItem, Text, Body, Thumbnail } from 'native-base';
 import Line from '../../atoms/Line/Line';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
+import RequestConfirmModal from '../../modals/RequestConfirmModal/RequestConfirmModal';
+import { showRequestConfirmModal } from '../../../redux/actions/modalActions';
 
-function ParticipantsList({ participantsList, navigation }) {
+function ParticipantsList({ participantsList, dispatch }) {
   if (!participantsList) {
     return null;
   }
@@ -14,12 +16,12 @@ function ParticipantsList({ participantsList, navigation }) {
           <ListItem
             key={item.userId}
             onPress={() => {
-              navigation.navigate('RequestConfirmModal', {
+              dispatch(showRequestConfirmModal(true, {
                 userImageUrl: item.userImageUrl,
                 userNickName: item.nickName,
                 userComment: item.comment,
                 userPrefecture: item.prefecture,
-              });
+              }));
             }}
           >
             <Thumbnail source={{ uri: item.userImageUrl }} />
@@ -34,7 +36,14 @@ function ParticipantsList({ participantsList, navigation }) {
   );
 }
 
-function ParticipantsListPage({ navigation, results }) {
+function ParticipantsListPage(props) {
+  const {
+    navigation,
+    dispatch,
+    results,
+    data,
+    visible,
+  } = props;
   return (
     <Container>
       <SectionHeader
@@ -45,7 +54,11 @@ function ParticipantsListPage({ navigation, results }) {
       <Line />
       <ParticipantsList
         participantsList={results}
-        navigation={navigation}
+        dispatch={dispatch}
+      />
+      <RequestConfirmModal
+        visible={visible}
+        data={data}
       />
     </Container>
   );

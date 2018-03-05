@@ -6,11 +6,13 @@ function GudderiModal(props) {
   const {
     children,
     navigation,
+    visible,
   } = props;
   return (
     <Modal
       animationType="slide"
       transparent
+      visible={visible}
       onRequestClose={() => {
         navigation.goBack();
       }}

@@ -18,6 +18,7 @@ function ParticipantsList(props) {
 
 const connector = connect(state => ({
   ...state.event.participantsList,
+  ...state.modal.modals,
 }));
 
 export default compose(
