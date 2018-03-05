@@ -26,8 +26,8 @@ function ParticipantsList({ participantsList, dispatch }) {
           >
             <Thumbnail source={{ uri: item.userImageUrl }} />
             <Body>
-              <Text>{`${item.nickName}さん ${item.prefecture}`}</Text>
-              <Text note>{item.comment}</Text>
+            <Text>{`${item.nickName}さん ${item.prefecture}`}</Text>
+            <Text note>{item.comment}</Text>
             </Body>
           </ListItem>
         );
@@ -59,6 +59,13 @@ function ParticipantsListPage(props) {
       <RequestConfirmModal
         visible={visible}
         data={data}
+        onPressConfirm={(pressedData) => {
+            dispatch(showRequestConfirmModal(false, data));
+            //TODO: dataを元に処理させる
+        }}
+        onPressBackdrop={() => {
+            dispatch(showRequestConfirmModal(false, data));
+        }}
       />
     </Container>
   );

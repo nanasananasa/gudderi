@@ -8,15 +8,15 @@ import styles from './RequestConfirmModalStyles';
 function RequestConfirmModal(props) {
   const {
     onPressConfirm,
-    navigation,
     visible,
     data,
+    onPressBackdrop,
   } = props;
 
   return (
     <GudderiModal
-      navigation={navigation}
       visible={visible}
+      onPressBackdrop={onPressBackdrop}
     >
       <Thumbnail
         style={styles.thumbnail}
@@ -26,7 +26,7 @@ function RequestConfirmModal(props) {
       <Text note>{data.userComment}</Text>
       <Button
         style={styles.confirmButton}
-        onPress={() => onPressConfirm()}
+        onPress={() => onPressConfirm(data)}
         title="依頼する!"
       >
         <Text style={styles.confirmText}>依頼する!</Text>

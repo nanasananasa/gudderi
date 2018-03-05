@@ -1,21 +1,23 @@
 import React from 'react';
-import { Modal, View } from 'react-native';
+import { View } from 'react-native';
+import Modal from 'react-native-modal';
 import styles from './GudderiModalStyles';
 
 function GudderiModal(props) {
   const {
     children,
-    navigation,
     visible,
+    onPressBackdrop,
   } = props;
   return (
     <Modal
-      animationType="slide"
-      transparent
-      visible={visible}
-      onRequestClose={() => {
-        navigation.goBack();
-      }}
+      isVisible={visible}
+      backdropOpacity={0.6}
+      animationIn="fadeIn"
+      animationOut="fadeOut"
+      animationInTiming={50}
+      animationOutTiming={50}
+      onBackdropPress={onPressBackdrop}
     >
       <View style={styles.modalContainer}>
         <View style={styles.modal}>
