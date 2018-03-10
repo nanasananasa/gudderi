@@ -10,7 +10,7 @@ function RequestConfirmModal(props) {
   const {
     onPressConfirm,
     visible,
-    data,
+    userSummary,
     onPressBackdrop,
   } = props;
 
@@ -26,17 +26,17 @@ function RequestConfirmModal(props) {
       <View style={styles.userContainer}>
         <Thumbnail
           style={styles.thumbnail}
-          source={{ uri: data.userImageUrl }}
+          source={{ uri: userSummary.userImageUrl }}
         />
         <View style={styles.userNameContainer}>
-          <Text style={styles.userName}>{`${data.userNickName}さん ${data.userPrefecture}`}</Text>
-          <Text note>{data.userComment}</Text>
+          <Text style={styles.userName}>{`${userSummary.nickName}さん ${userSummary.prefecture}`}</Text>
+          <Text note>{userSummary.comment}</Text>
         </View>
       </View>
 
       <Button
         style={styles.confirmButton}
-        onPress={() => onPressConfirm(data)}
+        onPress={() => onPressConfirm(userSummary)}
         title="依頼する!"
       >
         <Text style={styles.confirmText}>依頼する!</Text>

@@ -12,7 +12,7 @@ function ParticipantsListPage(props) {
     navigation,
     dispatch,
     results,
-    data,
+    modalShownUserSummary,
     visible,
   } = props;
   return (
@@ -29,15 +29,14 @@ function ParticipantsListPage(props) {
       />
       <RequestConfirmModal
         visible={visible}
-        data={data}
-        onPressConfirm={(pressedData) => {
-            console.log(navigation);
-            navigation.navigate('GoodsInput', { ...pressedData });
+        userSummary={modalShownUserSummary}
+        onPressConfirm={(pressedUserSummary) => {
+            navigation.navigate('GoodsInput', { userSummary: pressedUserSummary });
             // モーダルを閉じる
             dispatch(showRequestConfirmModal(false, null));
         }}
         onPressBackdrop={() => {
-            dispatch(showRequestConfirmModal(false, data));
+            dispatch(showRequestConfirmModal(false, null));
         }}
       />
     </Container>

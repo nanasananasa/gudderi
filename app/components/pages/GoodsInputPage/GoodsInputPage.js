@@ -1,16 +1,20 @@
 import React from 'react';
-import { Container } from 'native-base';
+import { Container, Thumbnail } from 'native-base';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
+import styles from './GoodsInputPageStyle';
 
 function GoodsInputPage(props) {
   const { navigation } = props;
-  console.log("call goodsinput page");
-  console.log(props);
+  const { userSummary } = navigation.state.params;
   return (
-    <Container >
+    <Container style={styles.container}>
       <SectionHeader
         navigation={navigation}
         title="グッズ入力"
+      />
+      <Thumbnail
+        style={styles.thumbnail}
+        source={{ uri: data.userImageUrl }}
       />
     </Container>
   );
