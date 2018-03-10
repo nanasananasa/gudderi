@@ -1,41 +1,11 @@
 import React from 'react';
-import { Container, List, ListItem, Text, Body, Thumbnail } from 'native-base';
+import { Container } from 'native-base';
 import Line from '../../atoms/Line/Line';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
 import RequestConfirmModal from '../../modals/RequestConfirmModal/RequestConfirmModal';
+import ParticipantsListContent from '../../organisms/ParticipantsListContent/ParticipantsListContent';
 import { showRequestConfirmModal } from '../../../redux/actions/modalActions';
 import styles from './ParticipantsListPageStyles';
-
-function ParticipantsList({ participantsList, dispatch }) {
-  if (!participantsList) {
-    return null;
-  }
-  return (
-    <List>
-      {participantsList.map((item) => {
-        return (
-          <ListItem
-            key={item.userId}
-            onPress={() => {
-              dispatch(showRequestConfirmModal(true, {
-                userImageUrl: item.userImageUrl,
-                userNickName: item.nickName,
-                userComment: item.comment,
-                userPrefecture: item.prefecture,
-              }));
-            }}
-          >
-            <Thumbnail source={{ uri: item.userImageUrl }} />
-            <Body>
-              <Text>{`${item.nickName}さん ${item.prefecture}`}</Text>
-              <Text note>{item.comment}</Text>
-            </Body>
-          </ListItem>
-        );
-      })}
-    </List>
-  );
-}
 
 function ParticipantsListPage(props) {
   const {
@@ -53,7 +23,7 @@ function ParticipantsListPage(props) {
         hasTabs
       />
       <Line />
-      <ParticipantsList
+      <ParticipantsListContent
         participantsList={results}
         dispatch={dispatch}
       />
