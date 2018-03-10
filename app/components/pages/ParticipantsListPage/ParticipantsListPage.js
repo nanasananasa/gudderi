@@ -4,6 +4,7 @@ import Line from '../../atoms/Line/Line';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
 import RequestConfirmModal from '../../modals/RequestConfirmModal/RequestConfirmModal';
 import { showRequestConfirmModal } from '../../../redux/actions/modalActions';
+import styles from './ParticipantsListPageStyles';
 
 function ParticipantsList({ participantsList, dispatch }) {
   if (!participantsList) {
@@ -26,8 +27,8 @@ function ParticipantsList({ participantsList, dispatch }) {
           >
             <Thumbnail source={{ uri: item.userImageUrl }} />
             <Body>
-            <Text>{`${item.nickName}さん ${item.prefecture}`}</Text>
-            <Text note>{item.comment}</Text>
+              <Text>{`${item.nickName}さん ${item.prefecture}`}</Text>
+              <Text note>{item.comment}</Text>
             </Body>
           </ListItem>
         );
@@ -45,7 +46,7 @@ function ParticipantsListPage(props) {
     visible,
   } = props;
   return (
-    <Container>
+    <Container style={styles.container}>
       <SectionHeader
         navigation={navigation}
         title="ライブの参加予定者"
