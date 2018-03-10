@@ -5,7 +5,6 @@ const buttonStyle = {
   alignItems: 'center',
   justifyContent: 'center',
   width: 200,
-  marginTop: 10,
   marginLeft: 20,
   marginRight: 20,
 };
@@ -22,6 +21,7 @@ export default StyleSheet.create({
   },
   confirmButton: {
     backgroundColor: constants.mainColor,
+    marginTop: 10,
     ...buttonStyle,
   },
   confirmText: {
