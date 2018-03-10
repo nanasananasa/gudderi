@@ -12,17 +12,14 @@ function GudderiModal(props) {
   return (
     <Modal
       isVisible={visible}
-      backdropOpacity={0.6}
       animationIn="fadeIn"
       animationOut="fadeOut"
       animationInTiming={50}
       animationOutTiming={50}
       onBackdropPress={onPressBackdrop}
     >
-      <View style={styles.modalContainer}>
-        <View style={styles.modal}>
-          {children != null ? children : null}
-        </View>
+      <View style={styles.modal}>
+        {children != null ? children : null}
       </View>
     </Modal>
   );
