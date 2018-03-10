@@ -31,6 +31,19 @@ function RequestConfirmModal(props) {
       >
         <Text style={styles.confirmText}>依頼する!</Text>
       </Button>
+      <Button
+        style={styles.cancelButton}
+        transparent
+        title=""
+        onPress={() => {
+          if (!onPressBackdrop) {
+            return;
+          }
+          onPressBackdrop();
+        }}
+      >
+        <Text style={styles.cancelText}>キャンセル</Text>
+      </Button>
     </GudderiModal>
   );
 }
