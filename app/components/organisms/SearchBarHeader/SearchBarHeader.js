@@ -20,6 +20,7 @@ function SearchBarHeader(props) {
           name="ios-search"
         />
         <Input
+          style={styles.searchInput}
           placeholder={hintText}
           onChangeText={onChangeText}
           returnKeyType="done"

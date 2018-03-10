@@ -14,6 +14,9 @@ export default StyleSheet.create({
   searchIcon: {
     color: constants.whiteColor,
   },
+  searchInput: {
+    fontSize: 14,
+  },
   cancelButtonContainer: {
     flex: 1,
   },
