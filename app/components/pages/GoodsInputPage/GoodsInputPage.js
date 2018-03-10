@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Thumbnail } from 'native-base';
+import { Container, Text, Thumbnail } from 'native-base';
+import { View } from 'react-native';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
 import styles from './GoodsInputPageStyle';
 
@@ -12,10 +13,12 @@ function GoodsInputPage(props) {
         navigation={navigation}
         title="グッズ入力"
       />
-      <Thumbnail
-        style={styles.thumbnail}
-        source={{ uri: data.userImageUrl }}
-      />
+      <View style={styles.userSummaryContainer}>
+        <Thumbnail
+          source={{ uri: userSummary.userImageUrl }}
+        />
+        <Text style={styles.userName}>{`${userSummary.nickName}さん ${userSummary.prefecture}`}</Text>
+      </View>
     </Container>
   );
 }
