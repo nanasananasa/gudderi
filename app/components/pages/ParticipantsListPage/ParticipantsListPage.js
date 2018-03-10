@@ -31,8 +31,10 @@ function ParticipantsListPage(props) {
         visible={visible}
         data={data}
         onPressConfirm={(pressedData) => {
-            dispatch(showRequestConfirmModal(false, data));
-            //TODO: dataを元に処理させる
+            console.log(navigation);
+            navigation.navigate('GoodsInput', { ...pressedData });
+            // モーダルを閉じる
+            dispatch(showRequestConfirmModal(false, null));
         }}
         onPressBackdrop={() => {
             dispatch(showRequestConfirmModal(false, data));

@@ -14,6 +14,10 @@ function RequestConfirmModal(props) {
     onPressBackdrop,
   } = props;
 
+  if (!visible) {
+    return null;
+  }
+
   return (
     <GudderiModal
       visible={visible}
