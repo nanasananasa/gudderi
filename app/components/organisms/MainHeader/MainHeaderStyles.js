@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
   title: {
     alignItems: 'center',
-    fontSize: 20,
+    fontSize: constants.fontSizeL,
     fontWeight: 'bold',
     color: constants.whiteColor,
   },

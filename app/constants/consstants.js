@@ -8,6 +8,10 @@ const constants = {
 
   mainTextColor: '#8E8E93',
   boldTextColor: '#4C4C4C',
+
+  fontSizeS: 12,
+  fontSizeM: 14,
+  fontSizeL: 20,
 };
 
 export default constants;

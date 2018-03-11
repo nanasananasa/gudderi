@@ -15,7 +15,7 @@ export default StyleSheet.create({
     color: constants.whiteColor,
   },
   searchInput: {
-    fontSize: 14,
+    fontSize: constants.fontSizeM,
   },
   cancelButtonContainer: {
     flex: 1,
