@@ -3,6 +3,8 @@ import {
   SEARCH_ARTIST,
   FETCH_LIVE_LIST,
   FETCH_PARTICIPANTS_LIST,
+  INPUT_GOODS_NAME,
+  INPUT_GOODS_PRICE,
 } from './../actions/eventActions';
 
 const initialState = {
@@ -10,6 +12,8 @@ const initialState = {
     keyword: '',
     results: [],
   },
+  goodsNames: {},
+  goodsPrices: {},
 };
 
 const eventReducer = handleActions({
@@ -24,6 +28,20 @@ const eventReducer = handleActions({
   [FETCH_PARTICIPANTS_LIST]: (state, { payload }) => ({
     ...state,
     ...payload,
+  }),
+  [INPUT_GOODS_NAME]: (state, { payload }) => ({
+    ...state,
+    goodsNames: {
+      ...state.goodsNames,
+      ...payload.goodsNames,
+    },
+  }),
+  [INPUT_GOODS_PRICE]: (state, { payload }) => ({
+    ...state,
+    goodsPrices: {
+      ...state.goodsPrices,
+      ...payload.goodsPrices,
+    },
   }),
 }, initialState);
 
