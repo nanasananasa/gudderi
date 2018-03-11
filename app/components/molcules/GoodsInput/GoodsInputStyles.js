@@ -28,9 +28,12 @@ export default StyleSheet.create({
     flex: 4,
     ...inputStyle,
   },
-  goodsIcon: {
+  goodsIconButton: {
     flex: 1,
     justifyContent: 'flex-end',
+  },
+  goodsIcon: {
+    color: 'gray',
   },
   priceContainer: {
     ...rowContainer,

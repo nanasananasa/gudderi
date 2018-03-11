@@ -11,4 +11,5 @@ function AskingGoodsInput(props) {
 export default connect(state => ({
   goodsNames: state.event.goodsNames,
   goodsPrices: state.event.goodsPrices,
+  goodsFormSize: state.event.goodsFormSize,
 }))(AskingGoodsInput);

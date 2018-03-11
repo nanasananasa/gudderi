@@ -4,13 +4,14 @@ import { View } from 'react-native';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
 import Line from '../../atoms/Line/Line';
 import GoodsInputForm from '../../organisms/GoodsInputForm/GoodsInputForm';
-import { inputGoodsName, inputGoodsPrice } from '../../../redux/actions/eventActions';
+import { inputGoodsName, inputGoodsPrice, addGoodsForm } from '../../../redux/actions/eventActions';
 import styles from './GoodsInputPageStyles';
 
 function GoodsInputPage(props) {
   const {
     navigation,
     dispatch,
+    goodsFormSize,
     goodsNames,
     goodsPrices,
   } = props;
@@ -25,11 +26,16 @@ function GoodsInputPage(props) {
       <Line />
       <View style={styles.userSummaryContainer}>
         <Thumbnail
+          large
           source={{ uri: userSummary.userImageUrl }}
         />
         <Text style={styles.userName}>{`${userSummary.nickName}さん ${userSummary.prefecture}`}</Text>
       </View>
       <GoodsInputForm
+        goodsFormSize={goodsFormSize}
+        onClickAddButton={() => {
+          dispatch(addGoodsForm(goodsFormSize));
+        }}
         onChangeGoodsName={(id, name) => {
           if (!name || name.length < 0) {
             return;

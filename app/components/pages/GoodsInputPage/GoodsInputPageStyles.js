@@ -7,8 +7,8 @@ export default StyleSheet.create({
   },
   userSummaryContainer: {
     alignItems: 'center',
-    padding: 10,
-    marginTop: 30,
+    padding: 5,
+    marginTop: 5,
   },
   userName: {
     marginTop: 10,

@@ -5,6 +5,7 @@ import {
   FETCH_PARTICIPANTS_LIST,
   INPUT_GOODS_NAME,
   INPUT_GOODS_PRICE,
+  ADD_GOODS_FORM,
 } from './../actions/eventActions';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   },
   goodsNames: {},
   goodsPrices: {},
+  goodsFormSize: 1,
 };
 
 const eventReducer = handleActions({
@@ -42,6 +44,10 @@ const eventReducer = handleActions({
       ...state.goodsPrices,
       ...payload.goodsPrices,
     },
+  }),
+  [ADD_GOODS_FORM]: (state, { payload }) => ({
+    ...state,
+    ...payload,
   }),
 }, initialState);
 

@@ -3,9 +3,19 @@ export const FETCH_LIVE_LIST = 'FETCH_LIVE_LIST';
 export const FETCH_PARTICIPANTS_LIST = 'FETCH_PARTICIPANTS_LIST';
 export const INPUT_GOODS_NAME = 'INPUT_GOODS_NAME';
 export const INPUT_GOODS_PRICE = 'INPUT_GOODS_PRICE';
+export const ADD_GOODS_FORM = 'ADD_GOODS_FORM';
 
 export const LIVE_SORT_KEY_DATE = 1;
 export const LIVE_SORT_KEY_POPULAR = 2;
+
+export const addGoodsForm = (goodsFormSize) => {
+  return ({
+    type: ADD_GOODS_FORM,
+    payload: {
+      goodsFormSize: goodsFormSize + 1,
+    },
+  });
+};
 
 export const inputGoodsName = (id, name) => {
   return ({
