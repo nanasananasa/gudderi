@@ -1,10 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import GoodsInputPage from '../../components/pages/GoodsInputPage/GoodsInputPage';
 
-function GoodsInput(props) {
+function AskingGoodsInput(props) {
   return (
     <GoodsInputPage {...props} />
   );
 }
 
-export default GoodsInput;
+export default connect(state => ({
+  goodsNames: state.event.goodsNames,
+  goodsPrices: state.event.goodsPrices,
+}))(AskingGoodsInput);

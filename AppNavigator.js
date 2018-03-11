@@ -19,7 +19,7 @@ const ClientStack = StackNavigator({
   ParticipantsList: {
     screen: ParticipantsList,
   },
-  AskingGoodsInpsut: {
+  AskingGoodsInput: {
     screen: AskingGoodsInput,
   },
 }, { headerMode: 'none' });

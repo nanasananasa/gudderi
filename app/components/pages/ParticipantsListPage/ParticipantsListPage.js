@@ -31,7 +31,7 @@ function ParticipantsListPage(props) {
         visible={visible}
         userSummary={modalShownUserSummary}
         onPressConfirm={(pressedUserSummary) => {
-            navigation.navigate('GoodsInput', { userSummary: pressedUserSummary });
+            navigation.navigate('AskingGoodsInput', { userSummary: pressedUserSummary });
             // モーダルを閉じる
             dispatch(showRequestConfirmModal(false, null));
         }}
