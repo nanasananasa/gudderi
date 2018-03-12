@@ -8,12 +8,9 @@ export const ADD_GOODS_FORM = 'ADD_GOODS_FORM';
 export const LIVE_SORT_KEY_DATE = 1;
 export const LIVE_SORT_KEY_POPULAR = 2;
 
-export const addGoodsForm = (goodsFormSize) => {
+export const addGoodsForm = () => {
   return ({
     type: ADD_GOODS_FORM,
-    payload: {
-      goodsFormSize: goodsFormSize + 1,
-    },
   });
 };
 

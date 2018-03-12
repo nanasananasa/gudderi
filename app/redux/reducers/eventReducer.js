@@ -45,9 +45,9 @@ const eventReducer = handleActions({
       ...payload.goodsPrices,
     },
   }),
-  [ADD_GOODS_FORM]: (state, { payload }) => ({
+  [ADD_GOODS_FORM]: (state) => ({
     ...state,
-    ...payload,
+    goodsFormSize: state.goodsFormSize + 1,
   }),
 }, initialState);
 
