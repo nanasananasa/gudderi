@@ -41,6 +41,7 @@ function GoodsInput(props) {
         <Label style={styles.priceLabel}>価格</Label>
         <TextInput
           numberOfLines={1}
+          maxLength={5}
           keyboardType="numeric"
           style={styles.priceInput}
           onChangeText={(price) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { View } from 'react-native';
 import { Icon, Button } from 'native-base';
 import GoodsInput from '../../molcules/GoodsInput/GoodsInput';
 import styles from './GoodsInputFormStyles';
@@ -26,7 +26,7 @@ function GoodsInputForm(props) {
     onClickAddButton,
   } = props;
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <Form
         goodsFormSize={goodsFormSize}
         onChangeGoodsPrice={onChangeGoodsPrice}
@@ -35,6 +35,7 @@ function GoodsInputForm(props) {
       <Button
         title=""
         transparent
+        style={styles.addButtonContainer}
         onPress={() => {
           if (!onClickAddButton) {
             return;
@@ -48,7 +49,7 @@ function GoodsInputForm(props) {
           name="ios-add-circle-outline"
         />
       </Button>
-    </ScrollView>
+    </View>
   );
 }
 
