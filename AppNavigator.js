@@ -4,6 +4,7 @@ import ArtistSearch from './app/containers/ArtistSearch/ArtistSearch';
 import LiveList from './app/containers/LiveList/LiveList';
 import ParticipantsList from './app/containers/ParticipantsList/ParticipantsList';
 import AskingGoodsInput from './app/containers/AskingGoodsInput/AskingGoodsInput';
+import AskingGoodsConfirm from './app/containers/AskingGoodsConfirm/AskingGoodsConfirm';
 import MainTabFooter from './app/components/organisms/MainTabFooter/MainTabFooter';
 
 const ClientStack = StackNavigator({
@@ -21,6 +22,9 @@ const ClientStack = StackNavigator({
   },
   AskingGoodsInput: {
     screen: AskingGoodsInput,
+  },
+  AskingGoodsConfirm: {
+    screen: AskingGoodsConfirm,
   },
 }, { headerMode: 'none' });
 
