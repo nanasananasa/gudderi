@@ -3,7 +3,7 @@ import { Button, Text } from 'native-base';
 import { View } from 'react-native';
 import styles from './GoodsSumStyles';
 
-function GoodsSum({ onPressConfirm, goodsNames, goodsPrices }) {
+function GoodsSum({ buttonLabel, onPressButton, goodsPrices }) {
   const priceList = Object.values(goodsPrices).map((item) => {
     return item.price;
   });
@@ -16,15 +16,15 @@ function GoodsSum({ onPressConfirm, goodsNames, goodsPrices }) {
       <Button
         onPress={() => {
           //TODO: validate & navigate
-          if (!onPressConfirm) {
+          if (!onPressButton) {
             return;
           }
-          onPressConfirm();
+          onPressButton();
         }}
-        title="確認"
+        title={buttonLabel}
         style={styles.askButton}
       >
-        <Text style={styles.askButtonText}>確認</Text>
+        <Text style={styles.askButtonText}>{buttonLabel}</Text>
       </Button>
     </View>
   );

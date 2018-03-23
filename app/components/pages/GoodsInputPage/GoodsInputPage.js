@@ -73,10 +73,10 @@ class GoodsInputPage extends React.Component {
         </ScrollView>
         <View style={styles.dividerLine} />
         <GoodsSum
-          onPressConfirm={() => {
+          buttonLabel="確認"
+          onPressButton={() => {
             navigation.navigate('AskingGoodsConfirm', { userSummary });
           }}
-          goodsNames={goodsNames}
           goodsPrices={goodsPrices}
         />
       </Container>
