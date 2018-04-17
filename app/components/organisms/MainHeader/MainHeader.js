@@ -4,36 +4,53 @@ import { Header, Title, Body, Left, Right, Icon, Button } from 'native-base';
 import styles from './MainHeaderStyles';
 
 function MainHeader(props) {
-  const { onClickSearchIcon } = props;
+  const { onClickSearchIcon, onClickMenu } = props;
   return (
     <Header style={styles.header}>
-      <Left style={styles.headerComponent}>
+      <Left>
         <Button
+          title="menu"
+          transparent
+          onPress={() => {
+            onClickMenu();
+          }}
+        >
+          <Icon
+            style={styles.icon}
+            name="ios-menu"
+          />
+        </Button>
+      </Left>
+      <Body>
+        <Title style={styles.title}>Gudderi</Title>
+      </Body>
+      <Right>
+        <Button
+          title="search"
           transparent
           onPress={() => {
             onClickSearchIcon();
           }}
         >
           <Icon
-            style={styles.searchIcon}
+            style={styles.icon}
             name="ios-search"
           />
         </Button>
-      </Left>
-      <Body style={styles.headerComponent}>
-        <Title style={styles.title}>Gudderi</Title>
-      </Body>
-      <Right />
+      </Right>
     </Header>
   );
 }
 
 MainHeader.propTypes = {
   onClickSearchIcon: PropTypes.func,
+  onClickMenu: PropTypes.func,
 };
 
 MainHeader.defaultProps = {
   onClickSearchIcon: () => {
+  },
+  onClickMenu: () => {
   },
 };
 

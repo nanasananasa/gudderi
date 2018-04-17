@@ -8,7 +8,7 @@ export default StyleSheet.create({
   headerComponent: {
     flex: 1,
   },
-  searchIcon: {
+  icon: {
     color: constants.whiteColor,
   },
   title: {
