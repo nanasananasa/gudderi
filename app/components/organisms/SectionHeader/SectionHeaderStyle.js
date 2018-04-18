@@ -9,7 +9,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   backIcon: {
-    color: constants.backIconColor,
+    color: constants.iconColor,
   },
   titleContainer: {
     flex: 5,

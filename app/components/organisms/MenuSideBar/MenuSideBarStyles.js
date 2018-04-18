@@ -8,7 +8,8 @@ export default StyleSheet.create({
     paddingBottom: 10,
     flex: 1,
   },
-  menuListItem: {
+  menuIcon: {
+    color: constants.iconColor,
   },
   accountInfo: { flexDirection: 'row' },
 });

@@ -16,73 +16,98 @@ function MenuSideBar(props) {
         </Body>
       </ListItem>
       <ListItem
-        style={styles.menuListItem}
         icon
       >
         <Left>
-          <Icon name="ios-home" />
+          <Icon
+            name="ios-home"
+            style={styles.menuIcon}
+          />
         </Left>
         <Body>
           <Text>ホーム</Text>
         </Body>
         <Right>
-          <Icon name="ios-arrow-forward" />
+          <Icon
+            name="ios-arrow-forward"
+            style={styles.menuIcon}
+          />
         </Right>
       </ListItem>
       <ListItem
-        style={styles.menuListItem}
         icon
       >
         <Left>
-          <Icon name="ios-filing" />
+          <Icon
+            name="ios-filing"
+            style={styles.menuIcon}
+          />
         </Left>
         <Body>
           <Text>申請した依頼一覧</Text>
         </Body>
         <Right>
-          <Icon name="ios-arrow-forward" />
+          <Icon
+            name="ios-arrow-forward"
+            style={styles.menuIcon}
+          />
         </Right>
       </ListItem>
       <ListItem
-        style={styles.menuListItem}
         icon
       >
         <Left>
-          <Icon name="ios-help-circle" />
+          <Icon
+            name="ios-help-circle"
+            style={styles.menuIcon}
+          />
         </Left>
         <Body>
           <Text>ガイド</Text>
         </Body>
         <Right>
-          <Icon name="ios-arrow-forward" />
+          <Icon
+            name="ios-arrow-forward"
+            style={styles.menuIcon}
+          />
         </Right>
       </ListItem>
       <ListItem
-        style={styles.menuListItem}
         icon
       >
         <Left>
-          <Icon name="ios-contact" />
+          <Icon
+            name="ios-contact"
+            style={styles.menuIcon}
+          />
         </Left>
         <Body>
           <Text>お問い合わせ</Text>
         </Body>
         <Right>
-          <Icon name="ios-arrow-forward" />
+          <Icon
+            name="ios-arrow-forward"
+            style={styles.menuIcon}
+          />
         </Right>
       </ListItem>
       <ListItem
-        style={styles.menuListItem}
         icon
       >
         <Left>
-          <Icon name="ios-settings" />
+          <Icon
+            name="ios-settings"
+            style={styles.menuIcon}
+          />
         </Left>
         <Body>
           <Text>設定</Text>
         </Body>
         <Right>
-          <Icon name="ios-arrow-forward" />
+          <Icon
+            name="ios-arrow-forward"
+            style={styles.menuIcon}
+          />
         </Right>
       </ListItem>
     </List>

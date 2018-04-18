@@ -3,7 +3,7 @@ const constants = {
   whiteColor: '#ffffff',
   headerInputBackColor: '#EAC5C9',
   sectionHeaderColor: '#FAFAFA',
-  backIconColor: '#B5B5B6',
+  iconColor: '#B5B5B6',
   borderColor: '#B5B5B6',
 
   mainTextColor: '#8E8E93',
