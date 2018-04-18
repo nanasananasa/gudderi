@@ -1,5 +1,6 @@
 import React from 'react';
 import TopPage from '../../components/pages/TopPage/TopPage';
+import MenuDrawerContainer from '../MenuDrawerContainer/MenuDrawerContainer';
 
 function Top(props) {
   return (
@@ -7,4 +8,4 @@ function Top(props) {
   );
 }
 
-export default Top;
+export default MenuDrawerContainer(Top);
