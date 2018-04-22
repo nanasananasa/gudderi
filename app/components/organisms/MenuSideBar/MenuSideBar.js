@@ -4,6 +4,7 @@ import styles from './MenuSideBarStyles';
 
 function MenuSideBar(props) {
   //TODO: アカウントの情報取ってきて、出すか、会員登録リンク
+  //TODO: 現在ページはわかるように色を分ける
   const { navigator } = props;
   return (
     <List style={styles.menuListContainer}>
