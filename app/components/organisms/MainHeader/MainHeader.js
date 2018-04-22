@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header, Title, Body, Left, Right, Icon, Button } from 'native-base';
+import { Header, Title, Left, Right, Body, Icon, Button } from 'native-base';
 import styles from './MainHeaderStyles';
 
 function MainHeader(props) {
-  const { onClickSearchIcon, onClickMenu } = props;
+  const {
+    onClickSearchIcon,
+    onClickNotifications,
+    onClickTodo,
+    onClickMenu,
+  } = props;
   return (
     <Header style={styles.header}>
       <Left>
@@ -13,7 +18,7 @@ function MainHeader(props) {
           transparent
           onPress={() => {
             onClickMenu();
-          }}
+        }}
         >
           <Icon
             style={styles.icon}
@@ -37,6 +42,30 @@ function MainHeader(props) {
             name="ios-search"
           />
         </Button>
+        <Button
+          title="notification"
+          transparent
+          onPress={() => {
+            onClickNotifications();
+          }}
+        >
+          <Icon
+            style={styles.icon}
+            name="ios-notifications"
+          />
+        </Button>
+        <Button
+          title="todo"
+          transparent
+          onPress={() => {
+            onClickTodo();
+          }}
+        >
+          <Icon
+            style={styles.icon}
+            name="ios-checkmark"
+          />
+        </Button>
       </Right>
     </Header>
   );
@@ -44,11 +73,17 @@ function MainHeader(props) {
 
 MainHeader.propTypes = {
   onClickSearchIcon: PropTypes.func,
+  onClickNotifications: PropTypes.func,
+  onClickTodo: PropTypes.func,
   onClickMenu: PropTypes.func,
 };
 
 MainHeader.defaultProps = {
   onClickSearchIcon: () => {
+  },
+  onClickNotifications: () => {
+  },
+  onClickTodo: () => {
   },
   onClickMenu: () => {
   },
