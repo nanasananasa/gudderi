@@ -1,6 +1,8 @@
 import React from 'react';
-import { Container, Content } from 'native-base';
+import { View, Image } from 'react-native';
+import { Container } from 'native-base';
 import MainHeader from '../../../components/organisms/MainHeader/MainHeader';
+import iconImage from '../../../constants/assets/icon.png';
 import styles from './TopPageStyle';
 
 function TopPage(props) {
@@ -16,7 +18,12 @@ function TopPage(props) {
         }}
         onClickMenu={() => openDrawer()}
       />
-      <Content />
+      <View style={styles.bodyContainer}>
+        <Image
+          source={iconImage}
+          style={styles.iconImage}
+        />
+      </View>
     </Container>
   );
 }
