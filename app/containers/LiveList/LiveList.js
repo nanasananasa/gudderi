@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { compose, lifecycle, pure } from 'recompose'
+import { compose, lifecycle, pure } from 'recompose';
 import LiveListPage from '../../components/pages/LiveListPage/LiveListPage';
 import {
   fetchLiveList,
