@@ -2,6 +2,7 @@
  * @flow
  */
 
+// お知らせ情報の型
 export type UserInformation = {
   userInformationId: number,
   title: string,
@@ -10,8 +11,16 @@ export type UserInformation = {
   createdAt: string
 }
 
-export type UserInfromationState = {
+// クライアント側で保持するstateの型
+export type UserInformationState = {
   loadingState: boolean,
   informationList: Array<UserInformation>,
   totalInformationCount: number,
 };
+
+// APIからの返却型
+export type UserInformationResponse = {
+  totalInformationCount: number,
+  userInformation: Array<UserInformation>,
+};
+
