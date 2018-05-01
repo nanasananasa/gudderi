@@ -4,7 +4,6 @@
 import React from 'react';
 import { Container, List, ListItem, Body, Text } from 'native-base';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
-import constants from '../../../constants/constants';
 import styles from './InformationListPageStyles';
 import type { UserInformation, UserInformationState } from '../../../types/userInformationTypes';
 
@@ -13,7 +12,8 @@ type Props = {
   navigation: any,
 };
 
-function InformationList({ userInformationList }: { userInformationList: Array<UserInformation> }) {
+function InformationList({ userInformationList, navigation }:
+  { userInformationList: Array<UserInformation>, navigation: any }) {
   if (!userInformationList || userInformationList.length <= 0) {
     return (
       <Container>
@@ -29,6 +29,7 @@ function InformationList({ userInformationList }: { userInformationList: Array<U
           <ListItem
             key={item.userInformationId}
             onPress={() => {
+              navigation.navigate('InformationDetail');
             }}
           >
             <Body>
@@ -49,14 +50,13 @@ function InformationListPage(props: Props) {
   return (
     <Container>
       <SectionHeader
-        headerColor={constants.mainColor}
-        textColor={constants.whiteColor}
-        backIconColor={constants.whiteColor}
+        primary
         navigation={navigation}
         title="お知らせ"
       />
       <InformationList
         userInformationList={userInformation.informationList}
+        navigation={navigation}
       />
     </Container>
   );

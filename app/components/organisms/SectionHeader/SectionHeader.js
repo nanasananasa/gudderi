@@ -10,9 +10,18 @@ type Props = {
   navigation: any,
   title: string,
   hasTabs: ?boolean,
-  headerColor: ?string,
-  textColor: ?string,
-  backIconColor: ?string,
+  primary: ?boolean
+};
+
+const PRIMARY_STYLE = {
+  headerColor: constants.mainColor,
+  textColor: constants.whiteColor,
+  backIconColor: constants.whiteColor,
+};
+const SUB_STYLE = {
+  headerColor: constants.sectionHeaderColor,
+  textColor: constants.mainTextColor,
+  backIconColor: constants.iconColor,
 };
 
 function SectionHeader(props: Props) {
@@ -20,13 +29,12 @@ function SectionHeader(props: Props) {
     navigation,
     title,
     hasTabs,
-    headerColor,
-    textColor,
-    backIconColor,
+    primary,
   } = props;
+  const headerStyle = primary ? PRIMARY_STYLE : SUB_STYLE;
   return (
     <Header
-      style={{ backgroundColor: headerColor }}
+      style={{ backgroundColor: headerStyle.headerColor }}
       hasTabs={hasTabs}
     >
       <Left style={styles.backIconContainer}>
@@ -38,7 +46,7 @@ function SectionHeader(props: Props) {
         >
           <Icon
             style={{
-              color: backIconColor,
+              color: headerStyle.backIconColor,
             }}
             name="ios-arrow-back"
           />
@@ -47,10 +55,10 @@ function SectionHeader(props: Props) {
       <Body style={styles.titleContainer}>
         <Title
           style={{
-               alignItems: 'center',
-               fontWeight: 'bold',
-               color: textColor,
-          }}
+                   alignItems: 'center',
+                   fontWeight: 'bold',
+                   color: headerStyle.textColor,
+              }}
         >
           {title}
         </Title>
@@ -64,9 +72,7 @@ SectionHeader.defaultProps = {
   navigation: null,
   title: '',
   hasTabs: false,
-  headerColor: constants.sectionHeaderColor,
-  textColor: constants.mainTextColor,
-  backIconColor: constants.iconColor,
+  primary: false,
 };
 
 export default SectionHeader;
