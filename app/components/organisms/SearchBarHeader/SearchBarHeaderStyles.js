@@ -8,7 +8,7 @@ export default StyleSheet.create({
   },
   searchBarContainer: {
     flex: 3,
-    backgroundColor: constants.headerInputBackColor,
+    backgroundColor: constants.lightPinkColor,
     borderRadius: 5,
   },
   searchIcon: {

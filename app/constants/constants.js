@@ -1,7 +1,7 @@
 const constants = {
   mainColor: '#E07581',
   whiteColor: '#ffffff',
-  headerInputBackColor: '#EAC5C9',
+  lightPinkColor: '#EAC5C9',
   sectionHeaderColor: '#FAFAFA',
   iconColor: '#B5B5B6',
   borderColor: '#B5B5B6',
