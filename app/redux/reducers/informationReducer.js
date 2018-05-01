@@ -1,9 +1,14 @@
+/**
+ * @flow
+ */
 import { handleActions } from 'redux-actions';
 import { FETCH_INFORMATION } from './../actions/informationActions';
+import type { UserInfromationState } from '../../types/userInformationTypes';
 
-const initialState = {
+const initialState: { userInformation: UserInfromationState } = {
   userInformation: {
     loadingState: false,
+    totalInformationCount: 0,
     informationList: [],
   },
 };
