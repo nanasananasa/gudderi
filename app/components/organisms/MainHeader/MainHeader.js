@@ -1,7 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Header, Title, Left, Right, Body, Icon, Button } from 'native-base';
+import { Header, Title, Text, Left, Right, Body, Badge, Icon, Button } from 'native-base';
 import styles from './MainHeaderStyles';
+
+function UnreadBadge({ unreadCount }) {
+  if (unreadCount <= 0) {
+    return null;
+  }
+  return (
+    <Badge style={styles.badge}>
+      <Text>{unreadCount}</Text>
+    </Badge>
+  );
+}
 
 function MainHeader(props) {
   const {
@@ -9,6 +20,7 @@ function MainHeader(props) {
     onClickNotifications,
     onClickTodo,
     onClickMenu,
+    unreadInformationCount,
   } = props;
   return (
     <Header style={styles.header}>
@@ -49,6 +61,7 @@ function MainHeader(props) {
             onClickNotifications();
           }}
         >
+          <UnreadBadge unreadCount={unreadInformationCount} />
           <Icon
             style={styles.icon}
             name="ios-notifications"
@@ -87,6 +100,7 @@ MainHeader.defaultProps = {
   },
   onClickMenu: () => {
   },
+  unreadInformationCount: 0,
 };
 
 export default MainHeader;

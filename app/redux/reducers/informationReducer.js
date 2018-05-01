@@ -3,9 +3,12 @@
  */
 import { handleActions } from 'redux-actions';
 import { FETCH_INFORMATION } from './../actions/informationActions';
-import type { UserInfromationState } from '../../types/userInformationTypes';
+import type {
+  UserInformationState,
+  UserInformationResponse,
+} from '../../types/userInformationTypes';
 
-const initialState: { userInformation: UserInfromationState } = {
+const initialState: { userInformation: UserInformationState } = {
   userInformation: {
     loadingState: false,
     totalInformationCount: 0,
@@ -21,11 +24,12 @@ const informationReducers = handleActions({
       loadingState: true,
     },
   }),
-  [FETCH_INFORMATION.success]: (state, { payload }) => ({
+  [FETCH_INFORMATION.success]: (state, { payload }: { payload: UserInformationResponse }) => ({
     ...state,
     userInformation: {
       loadingState: false,
       informationList: payload.userInformation,
+      totalInformationCount: payload.totalInformationCount,
     },
   }),
   [FETCH_INFORMATION.failed]: (state, { payload }) => ({

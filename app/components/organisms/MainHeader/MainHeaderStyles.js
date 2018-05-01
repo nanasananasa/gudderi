@@ -8,6 +8,13 @@ export default StyleSheet.create({
   },
   icon: {
     color: constants.whiteColor,
+    zIndex: 1,
+  },
+  badge: {
+    position: 'absolute',
+    zIndex: 2,
+    top: 0,
+    right: 0,
   },
   title: {
     fontSize: constants.fontSizeL,

@@ -15,9 +15,10 @@ export const fetchInformation = () => {
     dispatch(createAction(FETCH_INFORMATION.loading));
     axios.get(`information/${userInfo.userId}`)
       .then((response) => {
-        dispatch(createAction(FETCH_INFORMATION.success, response.data.userInformation));
+        dispatch(createAction(FETCH_INFORMATION.success, response.data));
       })
       .catch((error) => {
+        //TODO: エラーハンドリング
         dispatch(createAction(FETCH_INFORMATION.failed, error));
       });
   };
