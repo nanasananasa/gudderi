@@ -5,6 +5,8 @@
     "flowtype"
   ],
   "rules": {
+    "flowtype/define-flow-type": 1,
+    "flowtype/use-flow-type": 1,
     "arrow-body-style": "off",
     "react/prop-types": "off",
     "react/jsx-filename-extension": [
