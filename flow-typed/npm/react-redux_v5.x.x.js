@@ -1,3 +1,4 @@
+/* eslint-disable */
 // flow-typed signature: 16b40ff613d36712444ef20fb107de7c
 // flow-typed version: be6cfc6753/react-redux_v5.x.x/flow_>=v0.62.0
 
@@ -155,3 +156,4 @@ declare module "react-redux" {
     connect: typeof connect,
   };
 }
+/* eslint-disable */
