@@ -29,7 +29,9 @@ function InformationList({ userInformationList, navigation }:
           <ListItem
             key={item.userInformationId}
             onPress={() => {
-              navigation.navigate('InformationDetail');
+              navigation.navigate('InformationDetail', {
+                userInformation: item,
+              });
             }}
           >
             <Body>
