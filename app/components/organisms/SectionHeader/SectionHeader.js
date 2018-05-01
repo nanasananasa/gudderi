@@ -1,13 +1,32 @@
+/**
+ * @flow
+ */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Header, Title, Body, Left, Right, Icon, Button } from 'native-base';
 import styles from './SectionHeaderStyle';
+import constants from '../../../constants/constants';
 
-function SectionHeader(props) {
-  const { navigation, title, hasTabs } = props;
+type Props = {
+  navigation: any,
+  title: string,
+  hasTabs: ?boolean,
+  headerColor: ?string,
+  textColor: ?string,
+  backIconColor: ?string,
+};
+
+function SectionHeader(props: Props) {
+  const {
+    navigation,
+    title,
+    hasTabs,
+    headerColor,
+    textColor,
+    backIconColor,
+  } = props;
   return (
     <Header
-      style={styles.header}
+      style={{ backgroundColor: headerColor }}
       hasTabs={hasTabs}
     >
       <Left style={styles.backIconContainer}>
@@ -18,13 +37,21 @@ function SectionHeader(props) {
           }}
         >
           <Icon
-            style={styles.backIcon}
+            style={{
+              color: backIconColor,
+            }}
             name="ios-arrow-back"
           />
         </Button>
       </Left>
       <Body style={styles.titleContainer}>
-        <Title style={styles.title}>
+        <Title
+          style={{
+               alignItems: 'center',
+               fontWeight: 'bold',
+               color: textColor,
+          }}
+        >
           {title}
         </Title>
       </Body>
@@ -33,14 +60,14 @@ function SectionHeader(props) {
   );
 }
 
-SectionHeader.propTypes = {
-  title: PropTypes.string,
-  hasTabs: PropTypes.bool,
-};
-
 SectionHeader.defaultProps = {
+  navigation: null,
   title: '',
   hasTabs: false,
+  headerColor: constants.sectionHeaderColor,
+  textColor: constants.mainTextColor,
+  backIconColor: constants.iconColor,
 };
+
 export default SectionHeader;
 
