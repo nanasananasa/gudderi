@@ -5,6 +5,9 @@
 ; Ignore "BUCK" generated dirs
 <PROJECT_ROOT>/\.buckd/
 
+; Ignore unexpected extra "@providesModule"
+.*/node_modules/.*/node_modules/fbjs/.*
+
 ; Ignore duplicate module providers
 ; For RN Apps installed via npm, "Libraries" folder is inside
 ; "node_modules/react-native" but in the source repo it is in the root
@@ -13,8 +16,8 @@
 ; Ignore polyfills
 .*/Libraries/polyfills/.*
 
-; Ignore node_modules
-.*/node_modules/.*
+; Ignore metro
+.*/node_modules/metro/.*
 
 [include]
 
