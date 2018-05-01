@@ -53,7 +53,7 @@ function InformationListPage(props: Props) {
         textColor={constants.whiteColor}
         backIconColor={constants.whiteColor}
         navigation={navigation}
-        title="お知らせ一覧"
+        title="お知らせ"
       />
       <InformationList
         userInformationList={userInformation.informationList}
