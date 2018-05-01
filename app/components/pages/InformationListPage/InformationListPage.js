@@ -25,9 +25,11 @@ function InformationList({ userInformationList, navigation }:
     <List
       dataArray={userInformationList}
       renderRow={(item) => {
+        const backStyle = item.readFlag ? styles.readItem : styles.unreadItem;
         return (
           <ListItem
             key={item.userInformationId}
+            style={backStyle}
             onPress={() => {
               navigation.navigate('InformationDetail', {
                 userInformation: item,

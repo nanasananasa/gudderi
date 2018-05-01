@@ -2,10 +2,11 @@
  * @flow
  */
 import { handleActions } from 'redux-actions';
-import { FETCH_INFORMATION } from './../actions/informationActions';
+import { FETCH_INFORMATION, UPDATE_READ_FLAG } from './../actions/informationActions';
 import type {
   UserInformationState,
   UserInformationResponse,
+  UserInformation,
 } from '../../types/userInformationTypes';
 
 const initialState: { userInformation: UserInformationState } = {
@@ -33,6 +34,25 @@ const informationReducers = handleActions({
     },
   }),
   [FETCH_INFORMATION.failed]: (state, { payload }) => ({
+    ...state,
+    ...payload,
+  }),
+
+  [UPDATE_READ_FLAG.loading]: state => ({
+    ...state,
+    userInformation: {
+      ...state.userInformation,
+      loadingState: true,
+    },
+  }),
+  [UPDATE_READ_FLAG.success]: (state, { payload }: { payload: Array<UserInformation> }) => ({
+    ...state,
+    userInformation: {
+      ...state.userInformation,
+      informationList: payload,
+    },
+  }),
+  [UPDATE_READ_FLAG.failed]: (state, { payload }) => ({
     ...state,
     ...payload,
   }),
