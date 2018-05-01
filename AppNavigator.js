@@ -5,6 +5,7 @@ import LiveList from './app/containers/LiveList/LiveList';
 import ParticipantsList from './app/containers/ParticipantsList/ParticipantsList';
 import AskingGoodsInput from './app/containers/AskingGoodsInput/AskingGoodsInput';
 import AskingGoodsConfirm from './app/containers/AskingGoodsConfirm/AskingGoodsConfirm';
+import InformationList from './app/containers/InformationList/InformationList';
 
 export default StackNavigator({
   Top: {
@@ -24,5 +25,8 @@ export default StackNavigator({
   },
   AskingGoodsConfirm: {
     screen: AskingGoodsConfirm,
+  },
+  InformationList: {
+    screen: InformationList,
   },
 }, { headerMode: 'none' });
