@@ -22,9 +22,9 @@ export const fetchInformation = () => {
       .then((response) => {
         dispatch(createAction(FETCH_INFORMATION.success, response.data));
       })
-      .catch((error) => {
-        //TODO: エラーハンドリング
-        dispatch(createAction(FETCH_INFORMATION.failed, error));
+      .catch(() => {
+        // お知らせは重要度の高い機能じゃないので失敗しても何もしない
+        dispatch(createAction(FETCH_INFORMATION.failed));
       });
   };
 };
@@ -51,9 +51,9 @@ export const updateReadFlag = (userInformationId) => {
         });
         dispatch(createAction(UPDATE_READ_FLAG.success, result));
       })
-      .catch((error) => {
-        //TODO: エラーハンドリング
-        dispatch(createAction(UPDATE_READ_FLAG.failed, error));
+      .catch(() => {
+        // お知らせは重要度の高い機能じゃないので失敗しても何もしない
+        dispatch(createAction(UPDATE_READ_FLAG.failed));
       });
   };
 };

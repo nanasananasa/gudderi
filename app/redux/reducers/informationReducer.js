@@ -33,9 +33,12 @@ const informationReducers = handleActions({
       totalInformationCount: payload.totalInformationCount,
     },
   }),
-  [FETCH_INFORMATION.failed]: (state, { payload }) => ({
+  [FETCH_INFORMATION.failed]: state => ({
     ...state,
-    ...payload,
+    userInformation: {
+      ...state.userInformation,
+      loadingState: false,
+    },
   }),
 
   [UPDATE_READ_FLAG.loading]: state => ({
@@ -50,11 +53,15 @@ const informationReducers = handleActions({
     userInformation: {
       ...state.userInformation,
       informationList: payload,
+      loadingState: false,
     },
   }),
-  [UPDATE_READ_FLAG.failed]: (state, { payload }) => ({
+  [UPDATE_READ_FLAG.failed]: state => ({
     ...state,
-    ...payload,
+    userInformation: {
+      ...state.userInformation,
+      loadingState: false,
+    },
   }),
 }, initialState);
 
