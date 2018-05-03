@@ -29,7 +29,7 @@ export const fetchInformation = () => {
   };
 };
 
-export const updateReadFlag = (userInformationId) => {
+export const updateReadFlag = (userInformationId: number) => {
   return (dispatch, getState) => {
     //TODO: ログインしているユーザ情報を取得する
     //TODO: ログインしていないユーザに対してはなにもさせない
