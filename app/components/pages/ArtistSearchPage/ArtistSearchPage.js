@@ -1,32 +1,8 @@
 import React from 'react';
-import { Container, Content, List, ListItem, Text } from 'native-base';
+import { Container } from 'native-base';
 import { searchArtist } from '../../../redux/actions/eventActions';
-import SearchBarHeader from '../../../components/organisms/SearchBarHeader/SearchBarHeader';
-
-function ArtistSearchResultList({ results, navigation }) {
-  if (!results) {
-    return null;
-  }
-  return (
-    <List>
-      {results.map((item) => {
-        return (
-          <ListItem
-            key={item.id}
-            onPress={() => {
-              navigation.navigate('LiveList', {
-                artistId: item.id,
-                artistName: item.name,
-              });
-            }}
-          >
-            <Text>{item.name}</Text>
-          </ListItem>
-        );
-      })}
-    </List>
-  );
-}
+import SearchBarHeader from '../../organisms/SearchBarHeader/SearchBarHeader';
+import ArtistSearchResultList from '../../organisms/ArtistSearchResultList/ArtistSearchResultList';
 
 function ArtistSearchPage(props) {
   const {
@@ -51,12 +27,10 @@ function ArtistSearchPage(props) {
         }}
         navigation={navigation}
       />
-      <Content>
-        <ArtistSearchResultList
-          results={results}
-          navigation={navigation}
-        />
-      </Content>
+      <ArtistSearchResultList
+        results={results}
+        navigation={navigation}
+      />
     </Container>
   );
 }
