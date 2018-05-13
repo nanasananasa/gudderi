@@ -9,5 +9,5 @@ function ArtistSearch(props) {
 }
 
 export default connect(state => ({
-  ...state.event.artistSearch,
+  ...state.artistSearch,
 }))(ArtistSearch);

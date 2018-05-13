@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'native-base';
-import { searchArtist } from '../../../redux/actions/eventActions';
+import { searchArtist } from '../../../redux/actions/artistActions';
 import SearchBarHeader from '../../organisms/SearchBarHeader/SearchBarHeader';
 import ArtistSearchResultList from '../../organisms/ArtistSearchResultList/ArtistSearchResultList';
 
@@ -8,7 +8,7 @@ function ArtistSearchPage(props) {
   const {
     navigation,
     keyword,
-    results,
+    searchResults,
     dispatch,
   } = props;
   return (
@@ -28,7 +28,7 @@ function ArtistSearchPage(props) {
         navigation={navigation}
       />
       <ArtistSearchResultList
-        results={results}
+        searchResults={searchResults}
         navigation={navigation}
       />
     </Container>

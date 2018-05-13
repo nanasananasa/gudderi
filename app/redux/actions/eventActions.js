@@ -1,4 +1,3 @@
-export const SEARCH_ARTIST = 'SEARCH_ARTIST';
 export const FETCH_LIVE_LIST = 'FETCH_LIVE_LIST';
 export const FETCH_PARTICIPANTS_LIST = 'FETCH_PARTICIPANTS_LIST';
 export const INPUT_GOODS_NAME = 'INPUT_GOODS_NAME';
@@ -201,43 +200,6 @@ export const fetchLiveList = (artistId, sortKey) => {
             liveName: '30周年記念ライブ',
             liveDate: '5/1 - 5/3',
             livePlace: '大阪',
-          },
-        ],
-      },
-    },
-  });
-};
-
-export const searchArtist = (keyword) => {
-  if (!keyword) {
-    return ({
-      type: SEARCH_ARTIST,
-      payload: {
-        artistSearch: {
-          keyword,
-          results: [],
-        },
-      },
-    });
-  }
-  //TODO: 通信しにいく
-  return ({
-    type: SEARCH_ARTIST,
-    payload: {
-      artistSearch: {
-        keyword,
-        results: [
-          {
-            id: 1,
-            name: '嵐',
-          },
-          {
-            id: 2,
-            name: '嵐の夜に',
-          },
-          {
-            id: 3,
-            name: '嵐の中で',
           },
         ],
       },
