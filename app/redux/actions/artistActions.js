@@ -16,7 +16,7 @@ export const SEARCH_ARTIST = createActionType('SEARCH_ARTIST');
  * loadingなら通信しない
  * 最後に通信してから500ms以内は通信しない
  */
-export const searchArtist = (keyword) => {
+export const searchArtist = (keyword: string) => {
   return (dispatch, getState) => {
     if (!keyword || keyword === '') {
       dispatch(createAction(SEARCH_ARTIST.success, {
