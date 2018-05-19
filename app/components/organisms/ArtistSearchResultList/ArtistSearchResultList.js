@@ -5,13 +5,13 @@ import React from 'react';
 import { List, ListItem, Text } from 'native-base';
 import type { ArtistSearchState } from '../../../types/artistTypes';
 
-function ArtistSearchResultList(props) {
+function ArtistSearchResultList(props: {
+  artistSearch:ArtistSearchState,
+  navigation: any,
+}) {
   const {
     artistSearch,
     navigation,
-  }: {
-    artistSearch: ArtistSearchState,
-    navigation: any,
   } = props;
 
   if (!artistSearch || artistSearch.totalCount === 0) {
