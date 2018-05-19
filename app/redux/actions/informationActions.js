@@ -12,7 +12,7 @@ export const FETCH_INFORMATION = createActionType('FETCH_INFORMATION');
 export const UPDATE_READ_FLAG = createActionType('UPDATE_READ_FLAG');
 
 export const fetchInformation = () => {
-  return (dispatch, getState) => {
+  return (dispatch: Function, getState: Function) => {
     //TODO: ログインしているユーザ情報を取得する
     //TODO: ログインしていないユーザに対してはデフォルトのお知らせを入れる？
     // const { userInfo } = getState();
@@ -30,7 +30,7 @@ export const fetchInformation = () => {
 };
 
 export const updateReadFlag = (userInformationId: number) => {
-  return (dispatch, getState) => {
+  return (dispatch: Function, getState: Function) => {
     //TODO: ログインしているユーザ情報を取得する
     //TODO: ログインしていないユーザに対してはなにもさせない
     // const { userInfo } = getState();

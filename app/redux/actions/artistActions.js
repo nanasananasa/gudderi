@@ -12,7 +12,7 @@ export const SEARCH_ARTIST = createActionType('SEARCH_ARTIST');
 export const UPDATE_KEYWORD = 'UPDATE_KEYWORD';
 
 
-const clearSearchResults = (dispatch) => {
+const clearSearchResults = (dispatch: Function) => {
   dispatch(createAction(SEARCH_ARTIST.success, {
     totalCount: 0,
     artistList: [],
@@ -20,14 +20,16 @@ const clearSearchResults = (dispatch) => {
   dispatch(createAction(UPDATE_KEYWORD, ''));
 };
 
-const requestArtistSearch = (dispatch, getState) => {
+const requestArtistSearch = (dispatch: Function, getState: Function) => {
   setTimeout(() => {
     const {
       artistSearch,
     }: { artistSearch: ArtistSearchState } = getState();
+    console.log("test");
+    console.log(getState());
     axios.get('artists', {
       params: {
-        keyword: artistSearch.searchResults.keyword,
+        keyword: artistSearch.keyword,
       },
     }).then((response) => {
       dispatch(createAction(SEARCH_ARTIST.success, response.data));
@@ -44,7 +46,7 @@ const requestArtistSearch = (dispatch, getState) => {
  * その間、キーワードは更新できる
  */
 export const searchArtist = (keyword: string) => {
-  return (dispatch, getState) => {
+  return (dispatch: Function, getState: Function) => {
     // キーワード無しの場合は一時情報をクリアする
     if (!keyword || keyword === '') {
       clearSearchResults(dispatch);

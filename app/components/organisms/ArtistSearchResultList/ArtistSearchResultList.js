@@ -7,19 +7,19 @@ import type { ArtistSearchState } from '../../../types/artistTypes';
 
 function ArtistSearchResultList(props) {
   const {
-    searchResults,
+    artistSearch,
     navigation,
   }: {
-    searchResults: ArtistSearchState,
+    artistSearch: ArtistSearchState,
     navigation: any,
   } = props;
 
-  if (!searchResults || searchResults.totalCount === 0) {
+  if (!artistSearch || artistSearch.totalCount === 0) {
     return null;
   }
   return (
     <List>
-      {searchResults.artistList.map((item) => {
+      {artistSearch.artistList.map((item) => {
         return (
           <ListItem
             key={item.artistId}

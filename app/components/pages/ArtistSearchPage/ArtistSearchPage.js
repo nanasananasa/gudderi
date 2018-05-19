@@ -8,7 +8,7 @@ function ArtistSearchPage(props) {
   const {
     navigation,
     keyword,
-    searchResults,
+    artistSearch,
     dispatch,
   } = props;
   return (
@@ -28,7 +28,7 @@ function ArtistSearchPage(props) {
         navigation={navigation}
       />
       <ArtistSearchResultList
-        searchResults={searchResults}
+        artistSearch={artistSearch}
         navigation={navigation}
       />
     </Container>
