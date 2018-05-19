@@ -9,39 +9,58 @@ import {
 import type { ArtistSearchState } from '../../types/artistTypes';
 
 export const SEARCH_ARTIST = createActionType('SEARCH_ARTIST');
+export const UPDATE_KEYWORD = 'UPDATE_KEYWORD';
 
-/**
- * TODO:
- * 検索ボタンによる検索とテキスト補完による検索を分ける
- * loadingなら通信しない
- * 最後に通信してから500ms以内は通信しない
- */
-export const searchArtist = (keyword: string) => {
-  return (dispatch, getState) => {
-    if (!keyword || keyword === '') {
-      dispatch(createAction(SEARCH_ARTIST.success, {
-        totalCount: 0,
-        artistList: [],
-      }));
-      return;
-    }
 
+const clearSearchResults = (dispatch) => {
+  dispatch(createAction(SEARCH_ARTIST.success, {
+    totalCount: 0,
+    artistList: [],
+  }));
+  dispatch(createAction(UPDATE_KEYWORD, ''));
+};
+
+const requestArtistSearch = (dispatch, getState) => {
+  setTimeout(() => {
     const {
       artistSearch,
     }: { artistSearch: ArtistSearchState } = getState();
-    if (artistSearch.loading) {
-      // すでに検索中の場合は新たに検索させない
-      return;
-    }
-    dispatch(createAction(SEARCH_ARTIST.loading));
     axios.get('artists', {
       params: {
-        keyword,
+        keyword: artistSearch.searchResults.keyword,
       },
     }).then((response) => {
       dispatch(createAction(SEARCH_ARTIST.success, response.data));
     }).catch(() => {
       dispatch(createAction(SEARCH_ARTIST.failed));
     });
+  }, 500);
+};
+
+/**
+ * TODO:
+ * 検索ボタンによる検索とテキスト補完による検索を分ける
+ * キーワードだけ保存しておいて、500MS後に検索させる。
+ * その間、キーワードは更新できる
+ */
+export const searchArtist = (keyword: string) => {
+  return (dispatch, getState) => {
+    // キーワード無しの場合は一時情報をクリアする
+    if (!keyword || keyword === '') {
+      clearSearchResults(dispatch);
+      return;
+    }
+    dispatch(createAction(UPDATE_KEYWORD, keyword));
+
+    const {
+      artistSearch,
+    }: { artistSearch: ArtistSearchState } = getState();
+    // すでに検索中の場合は新たに検索させない
+    if (artistSearch.loading) {
+      return;
+    }
+    dispatch(createAction(SEARCH_ARTIST.loading));
+    requestArtistSearch(dispatch, getState);
   };
 };
+

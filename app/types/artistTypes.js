@@ -13,6 +13,7 @@ export type ArtistSearchState = {
   loadingState: boolean,
   artistList: Array<Artist>,
   totalCount: number,
+  keyword: string,
 };
 
 // APIからの返却型
