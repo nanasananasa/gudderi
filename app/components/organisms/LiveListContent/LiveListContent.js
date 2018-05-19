@@ -1,19 +1,29 @@
+/**
+ * @flow
+ */
 import React from 'react';
-import { Content, List, ListItem, Body, Text } from 'native-base';
+import { List, ListItem, Body, Text } from 'native-base';
+import type { LiveListState } from '../../../types/liveTypes';
 
-function LiveList({ liveList, navigation }) {
-  if (!liveList) {
-    return null;
-  }
+function LiveListContent(props) {
+  const {
+    navigation,
+    liveList,
+  }: {
+    navigation: any,
+    liveList: LiveListState,
+  } = props;
+
   return (
-    <List>
-      {liveList.map((item) => {
+    <List
+      dataArray={liveList.liveList}
+      renderRow={(item) => {
         return (
           <ListItem
-            key={item.id}
+            key={item.liveId}
             onPress={() => {
               navigation.navigate('ParticipantsList', {
-                liveId: item.id,
+                liveId: item.liveId,
               });
             }}
           >
@@ -23,22 +33,9 @@ function LiveList({ liveList, navigation }) {
             </Body>
           </ListItem>
         );
-      })}
-    </List>
+      }}
+    />
   );
 }
-
-function LiveListContent(props) {
-  const { liveList, navigation } = props;
-  return (
-    <Content>
-      <LiveList
-        liveList={liveList}
-        navigation={navigation}
-      />
-    </Content>
-  );
-}
-
 
 export default LiveListContent;

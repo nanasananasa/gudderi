@@ -1,15 +1,21 @@
+/**
+ * @flow
+ */
 import React from 'react';
-import { Container, Tab, Tabs } from 'native-base';
+import { Container } from 'native-base';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
 import LiveListContent from '../../organisms/LiveListContent/LiveListContent';
-import styles from './LiveListPageStyles';
+import type { LiveListState } from '../../../types/liveTypes';
 
 function LiveListPage(props) {
   const {
     navigation,
     artistName,
-    liveSearchOrderByDate,
-    liveSearchOrderByPopular,
+    liveList,
+  }: {
+    navigation: any,
+    artistName: string,
+    liveList: LiveListState,
   } = props;
   return (
     <Container>
@@ -18,29 +24,10 @@ function LiveListPage(props) {
         title={`「${artistName}」ライブ一覧`}
         hasTabs
       />
-      <Tabs
-        initialPage={0}
-        tabBarUnderlineStyle={styles.tabLineStyle}
-      >
-        <Tab
-          heading="日付順"
-          activeTextStyle={styles.activeTabTextStyle}
-        >
-          <LiveListContent
-            liveList={liveSearchOrderByDate.results}
-            navigation={navigation}
-          />
-        </Tab>
-        <Tab
-          heading="人気順"
-          activeTextStyle={styles.activeTabTextStyle}
-        >
-          <LiveListContent
-            liveList={liveSearchOrderByPopular.results}
-            navigation={navigation}
-          />
-        </Tab>
-      </Tabs>
+      <LiveListContent
+        liveList={liveList}
+        navigation={navigation}
+      />
     </Container>
   );
 }
