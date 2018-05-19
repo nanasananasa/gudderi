@@ -25,8 +25,6 @@ const requestArtistSearch = (dispatch: Function, getState: Function) => {
     const {
       artistSearch,
     }: { artistSearch: ArtistSearchState } = getState();
-    console.log("test");
-    console.log(getState());
     axios.get('artists', {
       params: {
         keyword: artistSearch.keyword,
