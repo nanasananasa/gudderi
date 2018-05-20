@@ -43,13 +43,16 @@ export const fetchMoreLiveList = (artistId: number) => {
       return;
     }
 
+    if (liveList.moreLoadingState) {
+      return;
+    }
+
     dispatch(createAction(FETCH_MORE_LIVE_LIST.loading));
     axios.get(`live/${artistId}?page=${liveList.currentPage + 1}`)
       .then((response) => {
         dispatch(createAction(FETCH_MORE_LIVE_LIST.success, response.data));
       })
       .catch(() => {
-        //TODO: エラーハンドリング
         dispatch(createAction(FETCH_MORE_LIVE_LIST.failed));
       });
   };

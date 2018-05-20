@@ -55,9 +55,11 @@ function LiveListContent(props) {
         dispatch(fetchMoreLiveList(artistId));
       }}
         onEndReachedThreshold={0}
-      />
-      <MoreLoading
-        moreLoadingState={liveList.moreLoadingState}
+        ListFooterComponent={
+          <MoreLoading
+            moreLoadingState={liveList.moreLoadingState}
+          />
+        }
       />
     </Container>
   );

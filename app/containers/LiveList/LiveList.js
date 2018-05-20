@@ -15,14 +15,14 @@ function LiveList(props) {
     artistId,
     artistName,
   } = props.navigation.state.params;
-  //TODO: 無限スクロール
   //TODO: エラー時の画面
-  //TODO: 追加ローディングの表示
 
   // 初期取得のロード
-  if (liveList.loading) {
+  if (liveList.loadingState) {
     return (
-      <Loading />
+      <Loading
+        viewFullScreen
+      />
     );
   }
   return (
