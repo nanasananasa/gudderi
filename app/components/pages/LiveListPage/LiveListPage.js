@@ -23,7 +23,7 @@ function LiveListPage(props: {
     <Container>
       <SectionHeader
         navigation={navigation}
-        title={`「${artistName}」ライブ一覧`}
+        title={`${artistName}`}
       />
       <Line />
       <LiveListContent

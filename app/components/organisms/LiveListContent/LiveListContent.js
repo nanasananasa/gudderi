@@ -3,9 +3,19 @@
  */
 import React from 'react';
 import { FlatList } from 'react-native';
-import { ListItem, Body, Text } from 'native-base';
+import { Container, ListItem, Body, Text } from 'native-base';
+import Loading from '../../atoms/Loading/Loading';
 import type { Live, LiveListState } from '../../../types/liveTypes';
-import { fetchLiveList } from '../../../redux/actions/liveActions';
+import { fetchMoreLiveList } from '../../../redux/actions/liveActions';
+
+function MoreLoading({ moreLoadingState }: { moreLoadingState: boolean }) {
+  if (!moreLoadingState) {
+    return null;
+  }
+  return (
+    <Loading />
+  );
+}
 
 function LiveListContent(props) {
   const {
@@ -21,10 +31,11 @@ function LiveListContent(props) {
   } = props;
 
   return (
-    <FlatList
-      keyExtractor={(item: Live) => `${item.liveScheduleId}`}
-      data={liveList.liveList}
-      renderItem={({ item }) => {
+    <Container>
+      <FlatList
+        keyExtractor={(item: Live) => `${item.liveScheduleId}`}
+        data={liveList.liveList}
+        renderItem={({ item }) => {
         return (
           <ListItem
             onPress={() => {
@@ -40,14 +51,15 @@ function LiveListContent(props) {
           </ListItem>
         );
       }}
-      onEndReached={() => {
-        //if (liveList.liveList.length >= liveList.totalCount) {
-        //  return;
-        //}
-        console.log("onEndReached");
-        dispatch(fetchLiveList(artistId, liveList.currentPage + 1));
+        onEndReached={() => {
+        dispatch(fetchMoreLiveList(artistId));
       }}
-    />
+        onEndReachedThreshold={0}
+      />
+      <MoreLoading
+        moreLoadingState={liveList.moreLoadingState}
+      />
+    </Container>
   );
 }
 

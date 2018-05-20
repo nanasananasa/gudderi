@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { compose, lifecycle, pure } from 'recompose';
 import LiveListPage from '../../components/pages/LiveListPage/LiveListPage';
 import Loading from '../../components/atoms/Loading/Loading';
-import { fetchLiveList } from '../../redux/actions/liveActions';
+import { fetchInitialLiveList } from '../../redux/actions/liveActions';
 import type { LiveListState } from '../../types/liveTypes';
 
 function LiveList(props) {
@@ -16,7 +16,6 @@ function LiveList(props) {
     artistName,
   } = props.navigation.state.params;
   //TODO: 無限スクロール
-  //TODO: ライブリストがクリアされず、一度取得されたデータが使いまわされる
   //TODO: エラー時の画面
   //TODO: 追加ローディングの表示
 
@@ -54,7 +53,7 @@ export default compose(
       const {
         artistId,
       } = navigation.state.params;
-      dispatch(fetchLiveList(artistId));
+      dispatch(fetchInitialLiveList(artistId));
     },
   }),
 )(LiveList);

@@ -15,6 +15,7 @@ export type Live = {
 // クライアント側で保持するstateの型
 export type LiveListState = {
   loadingState: boolean,
+  moreLoadingState: boolean,
   liveList: Array<Live>,
   totalCount: number,
   currentPage: number,
