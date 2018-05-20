@@ -2,28 +2,34 @@
  * @flow
  */
 import React from 'react';
-import { List, ListItem, Body, Text } from 'native-base';
-import type { LiveListState } from '../../../types/liveTypes';
+import { FlatList } from 'react-native';
+import { ListItem, Body, Text } from 'native-base';
+import type { Live, LiveListState } from '../../../types/liveTypes';
+import { fetchLiveList } from '../../../redux/actions/liveActions';
 
 function LiveListContent(props) {
   const {
     navigation,
     liveList,
+    dispatch,
+    artistId,
   }: {
     navigation: any,
     liveList: LiveListState,
+    dispatch: Function,
+    artistId: number,
   } = props;
 
   return (
-    <List
-      dataArray={liveList.liveList}
-      renderRow={(item) => {
+    <FlatList
+      keyExtractor={(item: Live) => `${item.liveScheduleId}`}
+      data={liveList.liveList}
+      renderItem={({ item }) => {
         return (
           <ListItem
-            key={item.liveId}
             onPress={() => {
               navigation.navigate('ParticipantsList', {
-                liveId: item.liveId,
+                liveId: item.liveScheduleId,
               });
             }}
           >
@@ -33,6 +39,13 @@ function LiveListContent(props) {
             </Body>
           </ListItem>
         );
+      }}
+      onEndReached={() => {
+        //if (liveList.liveList.length >= liveList.totalCount) {
+        //  return;
+        //}
+        console.log("onEndReached");
+        dispatch(fetchLiveList(artistId, liveList.currentPage + 1));
       }}
     />
   );
