@@ -12,9 +12,15 @@ import type { LiveListState } from '../../types/liveTypes';
 function LiveList(props) {
   const { liveList }: { liveList: LiveListState } = props;
   const {
+    artistId,
     artistName,
   } = props.navigation.state.params;
+  //TODO: 無限スクロール
+  //TODO: ライブリストがクリアされず、一度取得されたデータが使いまわされる
   //TODO: エラー時の画面
+  //TODO: 追加ローディングの表示
+
+  // 初期取得のロード
   if (liveList.loading) {
     return (
       <Loading />
@@ -24,6 +30,7 @@ function LiveList(props) {
     <LiveListPage
       {...props}
       liveList={liveList}
+      artistId={artistId}
       artistName={artistName}
     />
   );
