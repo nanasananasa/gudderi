@@ -2,8 +2,8 @@
  * @flow
  */
 import React from 'react';
-import { FlatList } from 'react-native';
-import { Container, ListItem, Body, Text } from 'native-base';
+import { FlatList, Text } from 'react-native';
+import { Container, ListItem, Body } from 'native-base';
 import Loading from '../../atoms/Loading/Loading';
 import styles from './LiveListContentStyles';
 import type { Live, LiveListState } from '../../../types/liveTypes';
@@ -54,8 +54,21 @@ function LiveListContent(props) {
             }}
           >
             <Body>
-              <Text>{item.liveName}</Text>
-              <Text>{`${item.liveDate} ${item.livePlace}`}</Text>
+              <Text style={styles.liveItemContent}>
+                {`<${item.liveName}>`}
+              </Text>
+              <Text style={styles.liveItemTitle}>
+                日程：
+                <Text style={styles.liveItemContent}>
+                  {item.liveDate}
+                </Text>
+              </Text>
+              <Text style={styles.liveItemTitle}>
+                場所：
+                <Text style={styles.liveItemContent}>
+                  {item.livePlace}
+                </Text>
+              </Text>
             </Body>
           </ListItem>
         );

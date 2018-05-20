@@ -6,4 +6,10 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  liveItemTitle: {
+    fontWeight: 'normal',
+  },
+  liveItemContent: {
+    fontWeight: 'bold',
+  },
 });
