@@ -5,28 +5,29 @@ import React from 'react';
 import { Container } from 'native-base';
 import SectionHeader from '../../organisms/SectionHeader/SectionHeader';
 import LiveListContent from '../../organisms/LiveListContent/LiveListContent';
+import Line from '../../atoms/Line/Line';
 import type { LiveListState } from '../../../types/liveTypes';
 
-function LiveListPage(props) {
+function LiveListPage(props: {
+  navigation: any,
+  dispatch: Function,
+  artistId: number,
+  artistName: string,
+  liveList: LiveListState,
+}) {
   const {
     navigation,
     artistName,
-    liveList,
-  }: {
-    navigation: any,
-    artistName: string,
-    liveList: LiveListState,
   } = props;
   return (
     <Container>
       <SectionHeader
         navigation={navigation}
         title={`「${artistName}」ライブ一覧`}
-        hasTabs
       />
+      <Line />
       <LiveListContent
-        liveList={liveList}
-        navigation={navigation}
+        {...props}
       />
     </Container>
   );
