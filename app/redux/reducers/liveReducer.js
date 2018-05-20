@@ -20,6 +20,9 @@ const liveListReducers = handleActions({
   [FETCH_LIVE_LIST.loading]: state => ({
     ...state,
     loadingState: true,
+    totalCount: 0,
+    liveList: [],
+    currentPage: 0,
   }),
   [FETCH_LIVE_LIST.success]: (state, { payload }: { payload: LiveListResponse }) => ({
     ...state,
@@ -31,6 +34,9 @@ const liveListReducers = handleActions({
   [FETCH_LIVE_LIST.failed]: state => ({
     ...state,
     loadingState: false,
+    totalCount: 0,
+    liveList: [],
+    currentPage: 0,
   }),
   [FETCH_MORE_LIVE_LIST.loading]: state => ({
     ...state,

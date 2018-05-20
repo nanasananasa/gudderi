@@ -24,7 +24,6 @@ export const fetchInitialLiveList = (artistId: number) => {
         dispatch(createAction(FETCH_LIVE_LIST.success, response.data));
       })
       .catch(() => {
-        //TODO: エラーハンドリング
         dispatch(createAction(FETCH_LIVE_LIST.failed));
       });
   };
@@ -38,12 +37,13 @@ export const fetchInitialLiveList = (artistId: number) => {
 export const fetchMoreLiveList = (artistId: number) => {
   return (dispatch: Function, getState: Function) => {
     const { liveList }: { liveList: LiveListState } = getState();
-    // 読み込むデータがもうない場合は何もしない
-    if (liveList.liveList.length >= liveList.totalCount) {
+
+    // すでにローディング中だったら何もしない
+    if (liveList.moreLoadingState) {
       return;
     }
-
-    if (liveList.moreLoadingState) {
+    // 読み込むデータがもうない場合は何もしない
+    if (liveList.liveList.length >= liveList.totalCount) {
       return;
     }
 
