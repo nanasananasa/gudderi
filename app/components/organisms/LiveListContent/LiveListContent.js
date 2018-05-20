@@ -5,6 +5,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { Container, ListItem, Body, Text } from 'native-base';
 import Loading from '../../atoms/Loading/Loading';
+import styles from './LiveListContentStyles';
 import type { Live, LiveListState } from '../../../types/liveTypes';
 import { fetchMoreLiveList } from '../../../redux/actions/liveActions';
 
@@ -14,6 +15,15 @@ function MoreLoading({ moreLoadingState }: { moreLoadingState: boolean }) {
   }
   return (
     <Loading />
+  );
+}
+
+function EmptyComponent() {
+  return (
+    <Container style={styles.emptyContainer}>
+      <Text>ライブ情報がありません。</Text>
+      <Text>時間をおいてお試しください。</Text>
+    </Container>
   );
 }
 
@@ -31,11 +41,10 @@ function LiveListContent(props) {
   } = props;
 
   return (
-    <Container>
-      <FlatList
-        keyExtractor={(item: Live) => `${item.liveScheduleId}`}
-        data={liveList.liveList}
-        renderItem={({ item }) => {
+    <FlatList
+      keyExtractor={(item: Live) => `${item.liveScheduleId}`}
+      data={liveList.liveList}
+      renderItem={({ item }) => {
         return (
           <ListItem
             onPress={() => {
@@ -51,17 +60,19 @@ function LiveListContent(props) {
           </ListItem>
         );
       }}
-        onEndReached={() => {
+      onEndReached={() => {
         dispatch(fetchMoreLiveList(artistId));
       }}
-        onEndReachedThreshold={0}
-        ListFooterComponent={
-          <MoreLoading
-            moreLoadingState={liveList.moreLoadingState}
-          />
-        }
-      />
-    </Container>
+      onEndReachedThreshold={0}
+      ListFooterComponent={
+        <MoreLoading
+          moreLoadingState={liveList.moreLoadingState}
+        />
+      }
+      ListEmptyComponent={
+        <EmptyComponent />
+      }
+    />
   );
 }
 
